@@ -1,4 +1,5 @@
-<<!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -17,8 +19,7 @@
 
     <!-- ENCABEZADO -->
     <header class="header">
-
-        <div class="logo">
+        <div class="logo" onclick="volverInicio()">
             VINILO
         </div>
 
@@ -29,43 +30,30 @@
         <p class="bienvenida">
             Pedí lo que quieras y disfrutá 🎶
         </p>
-
     </header>
 
 
     <!-- CATEGORÍAS -->
     <nav class="categorias" id="categorias">
 
-        <button onclick="mostrarCategoria('todos')" class="categoria activa">
-            Todo
-        </button>
-
-        <button onclick="mostrarCategoria('pizzas')" class="categoria">
+        <button onclick="mostrarCategoria('pizzas')" class="categoria activa" data-categoria="pizzas">
             🍕 Pizzas
         </button>
 
-        <button onclick="mostrarCategoria('empanadas')" class="categoria">
+        <button onclick="mostrarCategoria('empanadas')" class="categoria" data-categoria="empanadas">
             🥟 Empanadas
         </button>
 
-        <button onclick="mostrarCategoria('sandwiches')" class="categoria">
+        <button onclick="mostrarCategoria('sandwiches')" class="categoria" data-categoria="sandwiches">
             🥪 Sándwiches
         </button>
 
-        <button onclick="mostrarCategoria('papas')" class="categoria">
-            🍟 Papas
-        </button>
-
-        <button onclick="mostrarCategoria('postres')" class="categoria">
+        <button onclick="mostrarCategoria('postres')" class="categoria" data-categoria="postres">
             🍰 Postres
         </button>
 
-        <button onclick="mostrarCategoria('bebidas')" class="categoria">
+        <button onclick="mostrarCategoria('bebidas')" class="categoria" data-categoria="bebidas">
             🥤 Bebidas
-        </button>
-
-        <button onclick="mostrarCategoria('extras')" class="categoria">
-            ➕ Extras
         </button>
 
     </nav>
@@ -77,7 +65,7 @@
         <section class="menu">
 
             <div class="titulo-seccion">
-                <h1 id="tituloCategoria">Nuestra Carta</h1>
+                <h1 id="tituloCategoria">Pizzas</h1>
                 <p>Elegí tus favoritos</p>
             </div>
 
@@ -86,6 +74,46 @@
         </section>
 
     </main>
+
+
+    <!-- MODAL EMPANADAS -->
+    <div id="modalEmpanadas" class="modal">
+
+        <div class="selector-empanadas">
+
+            <button class="cerrar" onclick="cerrarEmpanadas()">
+                ×
+            </button>
+
+            <h2 id="tituloEmpanadas">
+                Elegí tus empanadas
+            </h2>
+
+            <p class="ayuda-empanadas" id="ayudaEmpanadas">
+                Elegí los gustos hasta completar la cantidad.
+            </p>
+
+            <div id="listaGustosEmpanadas"></div>
+
+            <div class="contador-empanadas">
+                <span>Seleccionadas</span>
+                <strong>
+                    <span id="cantidadSeleccionada">0</span>/<span id="cantidadNecesaria">6</span>
+                </strong>
+            </div>
+
+            <button
+                class="boton-confirmar"
+                id="botonConfirmarEmpanadas"
+                onclick="confirmarEmpanadas()"
+                disabled
+            >
+                AGREGAR AL PEDIDO
+            </button>
+
+        </div>
+
+    </div>
 
 
     <!-- BOTÓN CARRITO -->
@@ -113,7 +141,9 @@
                 ×
             </button>
 
-            <h2>Tu pedido 🛒</h2>
+            <h2>
+                Tu pedido 🛒
+            </h2>
 
             <div id="listaCarrito"></div>
 
@@ -123,7 +153,9 @@
 
             <div class="total-final">
 
-                <span>Total</span>
+                <span>
+                    Total
+                </span>
 
                 <strong id="totalFinal">
                     $0
@@ -133,10 +165,11 @@
 
 
             <!-- DATOS DEL CLIENTE -->
-
             <div class="datos-pedido">
 
-                <h3>Datos del pedido</h3>
+                <h3>
+                    Datos del pedido
+                </h3>
 
                 <label>
                     Nombre
@@ -218,6 +251,7 @@
     </div>
 
 
+    <!-- FOOTER -->
     <footer>
 
         <div class="footer-logo">
@@ -239,3 +273,4 @@
 
 </body>
 </html>
+```
