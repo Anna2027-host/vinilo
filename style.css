@@ -1,4 +1,3 @@
-css
 * {
     box-sizing: border-box;
     margin: 0;
@@ -90,7 +89,6 @@ body {
     flex-shrink: 0;
 
     border: 1px solid #31536a;
-
     background: #102c40;
 
     color: #dce9f0;
@@ -102,7 +100,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 
     font-size: 12px;
-
     font-weight: 600;
 
     cursor: pointer;
@@ -122,7 +119,7 @@ body {
 
 
 /* =========================
-   MENÚ
+   CARTA
 ========================= */
 
 .menu {
@@ -146,19 +143,21 @@ body {
     font-size: 13px;
 }
 
-
-/* =========================
-   PRODUCTOS
-========================= */
-
 .productos {
     display: grid;
+
     grid-template-columns: repeat(
         auto-fit,
         minmax(280px, 1fr)
     );
+
     gap: 15px;
 }
+
+
+/* =========================
+   PRODUCTOS
+========================= */
 
 .producto {
     background: #0d2639;
@@ -168,6 +167,12 @@ body {
     border-radius: 17px;
 
     padding: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
 
     transition: 0.2s;
 
@@ -181,7 +186,7 @@ body {
 }
 
 .producto-info {
-    width: 100%;
+    flex: 1;
 }
 
 .producto-nombre {
@@ -192,31 +197,86 @@ body {
 
 .producto-descripcion {
     color: #91a9ba;
+
     font-size: 12px;
+
     line-height: 1.5;
+
     margin-top: 6px;
+}
+
+.producto-precio {
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-top: 10px;
 }
 
 
 /* =========================
-   PIZZAS
+   BOTÓN +
 ========================= */
 
-.pizza-opciones {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 9px;
-    margin-top: 15px;
+.agregar {
+    align-self: center;
+
+    border: none;
+
+    background: white;
+
+    color: #071a2b;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.agregar:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   OPCIONES DE PIZZA
+========================= */
+
+.opciones-pizza {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 14px;
 }
 
 .opcion-pizza {
+    flex: 1;
+
     border: 1px solid #31536a;
+
     background: #102c40;
+
     color: white;
-    border-radius: 12px;
-    padding: 10px 7px;
-    cursor: pointer;
+
+    border-radius: 11px;
+
+    padding: 10px 6px;
+
     font-family: 'Montserrat', sans-serif;
+
+    cursor: pointer;
+
     transition: 0.2s;
 }
 
@@ -224,77 +284,95 @@ body {
     background: #194765;
 }
 
-.opcion-pizza .tipo {
+.opcion-pizza strong {
     display: block;
-    font-size: 10px;
-    color: #9db3c1;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 4px;
+
+    font-size: 12px;
+
+    margin-bottom: 3px;
 }
 
-.opcion-pizza .precio {
-    display: block;
-    font-size: 14px;
-    font-weight: 800;
+.opcion-pizza span {
+    font-size: 12px;
+
+    font-weight: 700;
 }
 
 
 /* =========================
-   EMPANADAS
+   CATEGORÍA EXTRAS DENTRO DE PIZZAS
 ========================= */
 
-.empanadas-packs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+.subtitulo-productos {
+    grid-column: 1 / -1;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 23px;
+
+    margin-top: 15px;
+
+    margin-bottom: -3px;
+}
+
+
+/* =========================
+   BOTONES DE PACK DE EMPANADAS
+========================= */
+
+.pack-empanadas {
+    background: #0d2639;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 17px;
+
+    padding: 18px;
+
     margin-top: 15px;
 }
 
+.pack-empanadas h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.pack-empanadas p {
+    color: #91a9ba;
+
+    font-size: 12px;
+
+    margin-bottom: 13px;
+}
+
 .boton-pack {
+    width: 100%;
+
     border: 1px solid #31536a;
+
     background: #102c40;
+
     color: white;
-    border-radius: 12px;
-    padding: 12px 8px;
-    cursor: pointer;
+
+    border-radius: 11px;
+
+    padding: 13px;
+
     font-family: 'Montserrat', sans-serif;
+
+    font-weight: 700;
+
+    cursor: pointer;
 }
 
 .boton-pack:hover {
     background: #194765;
 }
 
-.boton-pack .tipo {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.boton-pack .precio {
-    display: block;
-    font-size: 14px;
-    font-weight: 800;
-}
-
 
 /* =========================
-   PAPAS / EXTRAS DENTRO DE PIZZA
-========================= */
-
-.subtitulo-productos {
-    grid-column: 1 / -1;
-    margin-top: 8px;
-    margin-bottom: -5px;
-
-    font-family: 'Playfair Display', serif;
-    font-size: 23px;
-}
-
-
-/* =========================
-   BOTÓN CARRITO
+   CARRITO
 ========================= */
 
 .boton-carrito {
@@ -346,7 +424,6 @@ body {
     border-radius: 50%;
 
     width: 25px;
-
     height: 25px;
 
     display: flex;
@@ -388,7 +465,7 @@ body {
 
 
 /* =========================
-   CARRITO
+   CARRITO MODAL
 ========================= */
 
 .carrito {
@@ -417,133 +494,6 @@ body {
     margin-bottom: 20px;
 }
 
-
-/* =========================
-   SELECTOR EMPANADAS
-========================= */
-
-.selector-empanadas {
-    width: 100%;
-    max-width: 500px;
-
-    max-height: 92vh;
-    overflow-y: auto;
-
-    background: #092033;
-
-    border-radius: 24px 24px 0 0;
-
-    padding: 25px 18px 20px;
-
-    position: relative;
-}
-
-.selector-empanadas h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 25px;
-    padding-right: 40px;
-}
-
-.ayuda-empanadas {
-    color: #91a9ba;
-    font-size: 12px;
-    line-height: 1.5;
-    margin-top: 6px;
-    margin-bottom: 15px;
-}
-
-.gusto-empanada {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.gusto-nombre {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.controles-gusto {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.controles-gusto button {
-    width: 31px;
-    height: 31px;
-
-    border-radius: 50%;
-    border: none;
-
-    background: #183b53;
-    color: white;
-
-    font-size: 18px;
-
-    cursor: pointer;
-}
-
-.cantidad-gusto {
-    min-width: 18px;
-    text-align: center;
-    font-weight: 700;
-}
-
-.contador-empanadas {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 18px 0;
-
-    font-size: 14px;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.contador-empanadas strong {
-    font-size: 18px;
-}
-
-.boton-confirmar {
-    width: 100%;
-
-    margin-top: 18px;
-
-    border: none;
-
-    border-radius: 13px;
-
-    padding: 15px;
-
-    background: white;
-
-    color: #071a2b;
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-}
-
-.boton-confirmar:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-}
-
-
-/* =========================
-   CERRAR
-========================= */
-
 .cerrar {
     position: absolute;
 
@@ -568,7 +518,7 @@ body {
 
 
 /* =========================
-   ITEMS DEL CARRITO
+   ITEMS CARRITO
 ========================= */
 
 .item-carrito {
@@ -585,16 +535,19 @@ body {
 
 .item-nombre {
     font-size: 14px;
+
     font-weight: 700;
 }
 
 .item-precio {
     font-size: 13px;
+
     color: #b6c8d5;
+
     margin-top: 4px;
 }
 
-.cantidad-controles {
+.controles {
     display: flex;
 
     align-items: center;
@@ -602,7 +555,7 @@ body {
     gap: 9px;
 }
 
-.cantidad-controles button {
+.controles button {
     width: 30px;
     height: 30px;
 
@@ -619,7 +572,7 @@ body {
     cursor: pointer;
 }
 
-.cantidad-controles span {
+.cantidad {
     font-weight: 700;
 }
 
@@ -630,6 +583,11 @@ body {
 
     padding: 10px 0 20px;
 }
+
+
+/* =========================
+   TOTAL
+========================= */
 
 .total-final {
     display: flex;
@@ -651,7 +609,7 @@ body {
 
 
 /* =========================
-   FORMULARIO
+   DATOS PEDIDO
 ========================= */
 
 .datos-pedido {
@@ -660,6 +618,7 @@ body {
 
 .datos-pedido h3 {
     margin-bottom: 15px;
+
     font-size: 17px;
 }
 
@@ -671,6 +630,7 @@ body {
     font-weight: 600;
 
     margin-top: 14px;
+
     margin-bottom: 6px;
 
     color: #afc2cf;
@@ -698,6 +658,7 @@ body {
 
 .datos-pedido textarea {
     min-height: 85px;
+
     resize: vertical;
 }
 
@@ -734,6 +695,140 @@ body {
     font-weight: 800;
 
     cursor: pointer;
+}
+
+
+/* =========================
+   SELECTOR DE EMPANADAS
+========================= */
+
+.selector-empanadas {
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #092033;
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 25px 18px 20px;
+
+    position: relative;
+}
+
+.selector-empanadas h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+
+    margin-bottom: 5px;
+}
+
+.texto-selector {
+    color: #91a9ba;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.contador-empanadas {
+    background: #102c40;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    font-size: 14px;
+}
+
+.gusto-empanada {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.gusto-nombre {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.controles-gusto {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.controles-gusto button {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #183b53;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.cantidad-gusto {
+    min-width: 20px;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+.boton-confirmar-empanadas {
+    width: 100%;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 16px;
+
+    background: white;
+
+    color: #071a2b;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.boton-confirmar-empanadas:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
 }
 
 
@@ -794,13 +889,12 @@ footer {
         font-size: 27px;
     }
 
-    .pizza-opciones,
-    .empanadas-packs {
-        gap: 8px;
+    .opciones-pizza {
+        gap: 6px;
     }
 
-    .opcion-pizza,
-    .boton-pack {
-        padding: 10px 5px;
+    .opcion-pizza {
+        padding: 9px 4px;
     }
+
 }

@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,6 +18,7 @@
 
     <!-- ENCABEZADO -->
     <header class="header">
+
         <div class="logo" onclick="volverInicio()">
             VINILO
         </div>
@@ -30,29 +30,46 @@
         <p class="bienvenida">
             Pedí lo que quieras y disfrutá 🎶
         </p>
+
     </header>
 
 
     <!-- CATEGORÍAS -->
     <nav class="categorias" id="categorias">
 
-        <button onclick="mostrarCategoria('pizzas')" class="categoria activa" data-categoria="pizzas">
+        <button class="categoria activa"
+                data-categoria="pizzas"
+                onclick="mostrarCategoria('pizzas')">
             🍕 Pizzas
         </button>
 
-        <button onclick="mostrarCategoria('empanadas')" class="categoria" data-categoria="empanadas">
+        <button class="categoria"
+                data-categoria="empanadas"
+                onclick="mostrarCategoria('empanadas')">
             🥟 Empanadas
         </button>
 
-        <button onclick="mostrarCategoria('sandwiches')" class="categoria" data-categoria="sandwiches">
+        <button class="categoria"
+                data-categoria="sandwiches"
+                onclick="mostrarCategoria('sandwiches')">
             🥪 Sándwiches
         </button>
 
-        <button onclick="mostrarCategoria('postres')" class="categoria" data-categoria="postres">
+        <button class="categoria"
+                data-categoria="papas"
+                onclick="mostrarCategoria('papas')">
+            🍟 Papas
+        </button>
+
+        <button class="categoria"
+                data-categoria="postres"
+                onclick="mostrarCategoria('postres')">
             🍰 Postres
         </button>
 
-        <button onclick="mostrarCategoria('bebidas')" class="categoria" data-categoria="bebidas">
+        <button class="categoria"
+                data-categoria="bebidas"
+                onclick="mostrarCategoria('bebidas')">
             🥤 Bebidas
         </button>
 
@@ -65,8 +82,15 @@
         <section class="menu">
 
             <div class="titulo-seccion">
-                <h1 id="tituloCategoria">Pizzas</h1>
-                <p>Elegí tus favoritos</p>
+
+                <h1 id="tituloCategoria">
+                    Pizzas
+                </h1>
+
+                <p id="subtituloCategoria">
+                    Elegí tus favoritos
+                </p>
+
             </div>
 
             <div id="productos" class="productos"></div>
@@ -76,50 +100,12 @@
     </main>
 
 
-    <!-- MODAL EMPANADAS -->
-    <div id="modalEmpanadas" class="modal">
-
-        <div class="selector-empanadas">
-
-            <button class="cerrar" onclick="cerrarEmpanadas()">
-                ×
-            </button>
-
-            <h2 id="tituloEmpanadas">
-                Elegí tus empanadas
-            </h2>
-
-            <p class="ayuda-empanadas" id="ayudaEmpanadas">
-                Elegí los gustos hasta completar la cantidad.
-            </p>
-
-            <div id="listaGustosEmpanadas"></div>
-
-            <div class="contador-empanadas">
-                <span>Seleccionadas</span>
-                <strong>
-                    <span id="cantidadSeleccionada">0</span>/<span id="cantidadNecesaria">6</span>
-                </strong>
-            </div>
-
-            <button
-                class="boton-confirmar"
-                id="botonConfirmarEmpanadas"
-                onclick="confirmarEmpanadas()"
-                disabled
-            >
-                AGREGAR AL PEDIDO
-            </button>
-
-        </div>
-
-    </div>
-
-
     <!-- BOTÓN CARRITO -->
     <button class="boton-carrito" onclick="abrirCarrito()">
 
-        <span>🛒 Ver pedido</span>
+        <span>
+            🛒 Ver pedido
+        </span>
 
         <span id="cantidadCarrito">
             0
@@ -132,7 +118,7 @@
     </button>
 
 
-    <!-- VENTANA DEL CARRITO -->
+    <!-- CARRITO -->
     <div id="modalCarrito" class="modal">
 
         <div class="carrito">
@@ -251,6 +237,62 @@
     </div>
 
 
+    <!-- MODAL PARA ELEGIR EMPANADAS -->
+    <div id="modalEmpanadas" class="modal">
+
+        <div class="selector-empanadas">
+
+            <button
+                class="cerrar"
+                onclick="cerrarEmpanadas()"
+            >
+                ×
+            </button>
+
+
+            <h2 id="tituloEmpanadas">
+                Elegí tus empanadas
+            </h2>
+
+            <p class="texto-selector">
+                Elegí los gustos que quieras.
+            </p>
+
+
+            <div class="contador-empanadas">
+
+                Seleccionadas:
+
+                <strong id="cantidadSeleccionada">
+                    0
+                </strong>
+
+                /
+
+                <strong id="cantidadNecesaria">
+                    6
+                </strong>
+
+            </div>
+
+
+            <div id="listaGustosEmpanadas"></div>
+
+
+            <button
+                id="botonConfirmarEmpanadas"
+                class="boton-confirmar-empanadas"
+                onclick="confirmarEmpanadas()"
+                disabled
+            >
+                AGREGAR AL PEDIDO
+            </button>
+
+        </div>
+
+    </div>
+
+
     <!-- FOOTER -->
     <footer>
 
@@ -273,4 +315,3 @@
 
 </body>
 </html>
-```
