@@ -120,7 +120,7 @@ const productos = [
 
 
     // =========================
-    // EMPANADAS POR UNIDAD
+    // EMPANADAS
     // =========================
 
     {
@@ -257,16 +257,177 @@ const productos = [
 
     {
         id: 60,
-        nombre: "Bebida 1",
+        nombre: "Agua 500 ml",
         categoria: "bebidas",
-        precio: 0
+        precio: 3000
     },
 
     {
         id: 61,
-        nombre: "Bebida 2",
+        nombre: "Agua 1,5 L",
         categoria: "bebidas",
-        precio: 0
+        precio: 5000
+    },
+
+    {
+        id: 62,
+        nombre: "Agua saborizada 500 ml",
+        categoria: "bebidas",
+        precio: 3000
+    },
+
+    {
+        id: 63,
+        nombre: "Agua saborizada 1,5 L",
+        categoria: "bebidas",
+        precio: 5000
+    },
+
+    {
+        id: 64,
+        nombre: "Pepsi / 7UP 500 ml",
+        categoria: "bebidas",
+        precio: 4000
+    },
+
+    {
+        id: 65,
+        nombre: "Coca-Cola 1,5 L",
+        categoria: "bebidas",
+        precio: 5000
+    },
+
+    {
+        id: 66,
+        nombre: "Coca-Cola 1,125 L",
+        categoria: "bebidas",
+        precio: 8000
+    },
+
+    {
+        id: 67,
+        nombre: "Brahma",
+        categoria: "bebidas",
+        precio: 8000
+    },
+
+    {
+        id: 68,
+        nombre: "Brahma lata",
+        categoria: "bebidas",
+        precio: 5000
+    },
+
+    {
+        id: 69,
+        nombre: "Stella Artois",
+        categoria: "bebidas",
+        precio: 12000
+    },
+
+    {
+        id: 70,
+        nombre: "Stella Artois lata",
+        categoria: "bebidas",
+        precio: 6000
+    },
+
+    {
+        id: 71,
+        nombre: "Budweiser",
+        categoria: "bebidas",
+        precio: 4000
+    },
+
+    {
+        id: 72,
+        nombre: "Budweiser lata",
+        categoria: "bebidas",
+        precio: 4000
+    },
+
+    {
+        id: 73,
+        nombre: "Santa Fe lata",
+        categoria: "bebidas",
+        precio: 4000
+    },
+
+    {
+        id: 74,
+        nombre: "Trapiche",
+        categoria: "bebidas",
+        precio: 20000
+    },
+
+    {
+        id: 75,
+        nombre: "Alma Mora",
+        categoria: "bebidas",
+        precio: 18000
+    },
+
+    {
+        id: 76,
+        nombre: "F. Las Moras",
+        categoria: "bebidas",
+        precio: 13000
+    },
+
+    {
+        id: 77,
+        nombre: "San Telmo",
+        categoria: "bebidas",
+        precio: 12000
+    },
+
+    {
+        id: 78,
+        nombre: "Origen",
+        categoria: "bebidas",
+        precio: 18000
+    },
+
+    {
+        id: 79,
+        nombre: "Est. Mendoza",
+        categoria: "bebidas",
+        precio: 10000
+    },
+
+    {
+        id: 80,
+        nombre: "Don Valentín",
+        categoria: "bebidas",
+        precio: 15000
+    },
+
+    {
+        id: 81,
+        nombre: "Fernet jarra",
+        categoria: "bebidas",
+        precio: 12000
+    },
+
+    {
+        id: 82,
+        nombre: "Fernet medida",
+        categoria: "bebidas",
+        precio: 5000
+    },
+
+    {
+        id: 83,
+        nombre: "Smirnoff + Speed",
+        categoria: "bebidas",
+        precio: 12000
+    },
+
+    {
+        id: 84,
+        nombre: "Sky + Speed",
+        categoria: "bebidas",
+        precio: 18000
     }
 
 ];
@@ -327,9 +488,7 @@ function mostrarCategoria(categoria) {
     const subtitulo =
         document.getElementById("subtituloCategoria");
 
-
     productosContenedor.innerHTML = "";
-
 
     const nombresCategorias = {
 
@@ -342,14 +501,11 @@ function mostrarCategoria(categoria) {
 
     };
 
-
     titulo.textContent =
         nombresCategorias[categoria] || "Nuestra Carta";
 
-
     subtitulo.textContent =
         "Elegí tus favoritos";
-
 
     actualizarBotonesCategoria();
 
@@ -415,12 +571,10 @@ function crearProductoSimple(producto) {
     const contenedor =
         document.getElementById("productos");
 
-
     const tarjeta =
         document.createElement("div");
 
     tarjeta.className = "producto";
-
 
     tarjeta.innerHTML = `
 
@@ -449,7 +603,6 @@ function crearProductoSimple(producto) {
 
     `;
 
-
     contenedor.appendChild(tarjeta);
 
 }
@@ -464,17 +617,14 @@ function crearProductoConOpciones(producto) {
     const contenedor =
         document.getElementById("productos");
 
-
     const tarjeta =
         document.createElement("div");
 
     tarjeta.className = "producto";
 
-
     let botones = "";
 
-
-    producto.opciones.forEach((opcion, indice) => {
+    producto.opciones.forEach(opcion => {
 
         botones += `
 
@@ -519,7 +669,6 @@ function crearProductoConOpciones(producto) {
 
     `;
 
-
     contenedor.appendChild(tarjeta);
 
 }
@@ -548,19 +697,14 @@ function agregarAlCarrito(id, nombre, precio) {
         carrito.push({
 
             tipo: "producto",
-
             id: id,
-
             nombre: nombre,
-
             precio: precio,
-
             cantidad: 1
 
         });
 
     }
-
 
     actualizarCarrito();
 
@@ -581,10 +725,8 @@ function agregarOpcionPizza(
     const nombreCompleto =
         `${nombre} - ${opcion}`;
 
-
     const clave =
         `${id}-${opcion}`;
-
 
     const existente =
         carrito.find(
@@ -603,19 +745,14 @@ function agregarOpcionPizza(
         carrito.push({
 
             tipo: "pizza",
-
             clave: clave,
-
             nombre: nombreCompleto,
-
             precio: precio,
-
             cantidad: 1
 
         });
 
     }
-
 
     actualizarCarrito();
 
@@ -631,11 +768,12 @@ function mostrarEmpanadas() {
     const contenedor =
         document.getElementById("productos");
 
-
     contenedor.innerHTML = "";
 
 
-    // EMPANADAS POR UNIDAD
+    // =========================
+    // POR UNIDAD
+    // =========================
 
     const tituloUnidad =
         document.createElement("div");
@@ -644,23 +782,32 @@ function mostrarEmpanadas() {
         "subtitulo-productos";
 
     tituloUnidad.textContent =
-        "Por unidad";
+        "Por unidad · $2.200";
 
     contenedor.appendChild(tituloUnidad);
 
 
-    gustosEmpanadas.forEach((gusto, indice) => {
+    // CORREGIDO:
+    // Busca solamente productos de categoría empanadas.
+    // Ya no usa posiciones del array.
 
-        const producto =
-            productos[indice + 20];
+    const productosEmpanadas =
+        productos.filter(
+            producto =>
+                producto.categoria === "empanadas"
+        );
 
+
+    productosEmpanadas.forEach(producto => {
 
         crearProductoSimple(producto);
 
     });
 
 
+    // =========================
     // PACKS
+    // =========================
 
     const tituloPacks =
         document.createElement("div");
@@ -669,7 +816,7 @@ function mostrarEmpanadas() {
         "subtitulo-productos";
 
     tituloPacks.textContent =
-        "Docenas";
+        "Packs de empanadas";
 
     contenedor.appendChild(tituloPacks);
 
@@ -702,7 +849,6 @@ function crearPackEmpanadas(
 
     const contenedor =
         document.getElementById("productos");
-
 
     const tarjeta =
         document.createElement("div");
@@ -752,7 +898,6 @@ function abrirSelectorEmpanadas(
     cantidadEmpanadasNecesaria =
         cantidad;
 
-
     cantidadesEmpanadas = {};
 
 
@@ -766,22 +911,17 @@ function abrirSelectorEmpanadas(
     const modal =
         document.getElementById("modalEmpanadas");
 
-
     const titulo =
         document.getElementById("tituloEmpanadas");
-
 
     const cantidadNecesaria =
         document.getElementById("cantidadNecesaria");
 
-
     const cantidadSeleccionada =
         document.getElementById("cantidadSeleccionada");
 
-
     const lista =
         document.getElementById("listaGustosEmpanadas");
-
 
     const boton =
         document.getElementById(
@@ -798,10 +938,8 @@ function abrirSelectorEmpanadas(
     cantidadNecesaria.textContent =
         cantidad;
 
-
     cantidadSeleccionada.textContent =
         "0";
-
 
     lista.innerHTML = "";
 
@@ -813,6 +951,10 @@ function abrirSelectorEmpanadas(
 
         fila.className =
             "gusto-empanada";
+
+
+        const idCantidad =
+            obtenerIdGusto(gusto);
 
 
         fila.innerHTML = `
@@ -834,14 +976,7 @@ function abrirSelectorEmpanadas(
 
                 <span
                     class="cantidad-gusto"
-                    id="cantidad-${gusto
-                        .replaceAll(" ", "-")
-                        .replaceAll("ó", "o")
-                        .replaceAll("í", "i")
-                        .replaceAll("é", "e")
-                        .replaceAll("á", "a")
-                        .replaceAll("ñ", "n")
-                    }"
+                    id="${idCantidad}"
                 >
                     0
                 </span>
@@ -867,8 +1002,25 @@ function abrirSelectorEmpanadas(
 
     boton.disabled = true;
 
-
     modal.classList.add("abierto");
+
+}
+
+
+// =========================
+// ID DE GUSTO
+// =========================
+
+function obtenerIdGusto(gusto) {
+
+    return "cantidad-" +
+        gusto
+            .replaceAll(" ", "-")
+            .replaceAll("ó", "o")
+            .replaceAll("í", "i")
+            .replaceAll("é", "e")
+            .replaceAll("á", "a")
+            .replaceAll("ñ", "n");
 
 }
 
@@ -959,19 +1111,10 @@ function actualizarSelectorEmpanadas() {
 
     gustosEmpanadas.forEach(gusto => {
 
-        const id =
-            "cantidad-" +
-            gusto
-                .replaceAll(" ", "-")
-                .replaceAll("ó", "o")
-                .replaceAll("í", "i")
-                .replaceAll("é", "e")
-                .replaceAll("á", "a")
-                .replaceAll("ñ", "n");
-
-
         const elemento =
-            document.getElementById(id);
+            document.getElementById(
+                obtenerIdGusto(gusto)
+            );
 
 
         if (elemento) {
@@ -1050,22 +1193,16 @@ function confirmarEmpanadas() {
     carrito.push({
 
         tipo: "empanadas",
-
         clave: clave,
-
         nombre: nombre,
-
         detalle: detalle,
-
         precio: precio,
-
         cantidad: 1
 
     });
 
 
     cerrarEmpanadas();
-
 
     actualizarCarrito();
 
@@ -1096,24 +1233,20 @@ function actualizarCarrito() {
             "listaCarrito"
         );
 
-
     const vacio =
         document.getElementById(
             "carritoVacio"
         );
-
 
     const cantidad =
         document.getElementById(
             "cantidadCarrito"
         );
 
-
     const totalCarrito =
         document.getElementById(
             "totalCarrito"
         );
-
 
     const totalFinal =
         document.getElementById(
@@ -1153,7 +1286,6 @@ function actualizarCarrito() {
 
         const div =
             document.createElement("div");
-
 
         div.className =
             "item-carrito";
@@ -1197,7 +1329,6 @@ function actualizarCarrito() {
                 ${detalleHTML}
 
             </div>
-
 
             <div class="controles">
 
@@ -1365,13 +1496,13 @@ function enviarWhatsApp() {
 
 
     let mensaje =
-        "Hola! Quiero hacer el siguiente pedido:%0A%0A";
+        "Hola! Quiero hacer el siguiente pedido:\n\n";
 
 
     carrito.forEach(item => {
 
         mensaje +=
-            `• ${item.nombre} x${item.cantidad}%0A`;
+            `• ${item.nombre} x${item.cantidad}\n`;
 
 
         if (
@@ -1379,7 +1510,7 @@ function enviarWhatsApp() {
         ) {
 
             mensaje +=
-                `  ${item.detalle.join(" / ")}%0A`;
+                `  ${item.detalle.join(" / ")}\n`;
 
         }
 
@@ -1387,7 +1518,7 @@ function enviarWhatsApp() {
         mensaje +=
             `  ${formatoPrecio(
                 item.precio * item.cantidad
-            )}%0A%0A`;
+            )}\n\n`;
 
     });
 
@@ -1403,15 +1534,15 @@ function enviarWhatsApp() {
 
 
     mensaje +=
-        `TOTAL: ${formatoPrecio(total)}%0A%0A`;
+        `TOTAL: ${formatoPrecio(total)}\n\n`;
 
 
     mensaje +=
-        `Nombre: ${nombre || "No indicado"}%0A`;
+        `Nombre: ${nombre || "No indicado"}\n`;
 
 
     mensaje +=
-        `Pedido: ${tipoPedido}%0A`;
+        `Pedido: ${tipoPedido}\n`;
 
 
     if (tipoPedido === "Delivery") {
@@ -1419,19 +1550,19 @@ function enviarWhatsApp() {
         mensaje +=
             `Dirección: ${
                 direccion || "No indicada"
-            }%0A`;
+            }\n`;
 
     }
 
 
     mensaje +=
-        `Forma de pago: ${formaPago}%0A`;
+        `Forma de pago: ${formaPago}\n`;
 
 
     if (observaciones) {
 
         mensaje +=
-            `Observaciones: ${observaciones}%0A`;
+            `Observaciones: ${observaciones}\n`;
 
     }
 
@@ -1441,7 +1572,7 @@ function enviarWhatsApp() {
 
 
     const url =
-        `https://wa.me/${numero}?text=${mensaje}`;
+        `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
 
     window.open(
