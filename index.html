@@ -1,0 +1,241 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vinilo | Restó Bar</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div class="logo">
+            VINILO
+        </div>
+
+        <div class="subtitulo">
+            RESTÓ • BAR • PUB
+        </div>
+
+        <p class="bienvenida">
+            Pedí lo que quieras y disfrutá 🎶
+        </p>
+
+    </header>
+
+
+    <!-- CATEGORÍAS -->
+    <nav class="categorias" id="categorias">
+
+        <button onclick="mostrarCategoria('todos')" class="categoria activa">
+            Todo
+        </button>
+
+        <button onclick="mostrarCategoria('pizzas')" class="categoria">
+            🍕 Pizzas
+        </button>
+
+        <button onclick="mostrarCategoria('empanadas')" class="categoria">
+            🥟 Empanadas
+        </button>
+
+        <button onclick="mostrarCategoria('sandwiches')" class="categoria">
+            🥪 Sándwiches
+        </button>
+
+        <button onclick="mostrarCategoria('papas')" class="categoria">
+            🍟 Papas
+        </button>
+
+        <button onclick="mostrarCategoria('postres')" class="categoria">
+            🍰 Postres
+        </button>
+
+        <button onclick="mostrarCategoria('bebidas')" class="categoria">
+            🥤 Bebidas
+        </button>
+
+        <button onclick="mostrarCategoria('extras')" class="categoria">
+            ➕ Extras
+        </button>
+
+    </nav>
+
+
+    <!-- CARTA -->
+    <main>
+
+        <section class="menu">
+
+            <div class="titulo-seccion">
+                <h1 id="tituloCategoria">Nuestra Carta</h1>
+                <p>Elegí tus favoritos</p>
+            </div>
+
+            <div id="productos" class="productos"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTÓN CARRITO -->
+    <button class="boton-carrito" onclick="abrirCarrito()">
+
+        <span>🛒 Ver pedido</span>
+
+        <span id="cantidadCarrito">
+            0
+        </span>
+
+        <span id="totalCarrito">
+            $0
+        </span>
+
+    </button>
+
+
+    <!-- VENTANA DEL CARRITO -->
+    <div id="modalCarrito" class="modal">
+
+        <div class="carrito">
+
+            <button class="cerrar" onclick="cerrarCarrito()">
+                ×
+            </button>
+
+            <h2>Tu pedido 🛒</h2>
+
+            <div id="listaCarrito"></div>
+
+            <div class="carrito-vacio" id="carritoVacio">
+                Todavía no agregaste productos.
+            </div>
+
+            <div class="total-final">
+
+                <span>Total</span>
+
+                <strong id="totalFinal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <!-- DATOS DEL CLIENTE -->
+
+            <div class="datos-pedido">
+
+                <h3>Datos del pedido</h3>
+
+                <label>
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombreCliente"
+                    placeholder="Tu nombre"
+                >
+
+
+                <label>
+                    ¿Cómo querés recibirlo?
+                </label>
+
+                <select id="tipoPedido">
+
+                    <option value="Retiro por el local">
+                        Retiro por el local
+                    </option>
+
+                    <option value="Delivery">
+                        Delivery
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Dirección
+                </label>
+
+                <input
+                    type="text"
+                    id="direccionCliente"
+                    placeholder="Solo si es delivery"
+                >
+
+
+                <label>
+                    Forma de pago
+                </label>
+
+                <select id="formaPago">
+
+                    <option value="Efectivo">
+                        Efectivo
+                    </option>
+
+                    <option value="Transferencia">
+                        Transferencia
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Observaciones
+                </label>
+
+                <textarea
+                    id="observaciones"
+                    placeholder="Ej: sin cebolla, agregar cubiertos..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="boton-whatsapp"
+                onclick="enviarWhatsApp()"
+            >
+                📲 ENVIAR PEDIDO POR WHATSAPP
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            VINILO
+        </div>
+
+        <p>
+            Restó • Bar • Pub
+        </p>
+
+        <p>
+            Gracias por elegirnos 🤍
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

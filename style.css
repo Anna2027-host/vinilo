@@ -1,0 +1,619 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #071a2b;
+    color: white;
+    padding-bottom: 90px;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.header {
+    background:
+        linear-gradient(
+            rgba(2, 15, 27, 0.82),
+            rgba(2, 15, 27, 0.92)
+        ),
+        radial-gradient(
+            circle at center,
+            #123e5c,
+            #020b13
+        );
+
+    text-align: center;
+    padding: 45px 20px 35px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+.subtitulo {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #d7e8f4;
+    margin-top: 5px;
+}
+
+.bienvenida {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #b9cbd8;
+}
+
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.categorias {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    gap: 9px;
+
+    overflow-x: auto;
+
+    padding: 14px;
+
+    background: rgba(4, 18, 30, 0.96);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    scrollbar-width: none;
+}
+
+.categorias::-webkit-scrollbar {
+    display: none;
+}
+
+.categoria {
+    flex-shrink: 0;
+
+    border: 1px solid #31536a;
+
+    background: #102c40;
+
+    color: #dce9f0;
+
+    padding: 10px 15px;
+
+    border-radius: 30px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.categoria:hover {
+    background: #194765;
+}
+
+.categoria.activa {
+    background: white;
+    color: #092035;
+    border-color: white;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 16px;
+}
+
+.titulo-seccion {
+    margin-bottom: 22px;
+}
+
+.titulo-seccion h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
+.titulo-seccion p {
+    color: #91a9ba;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.productos {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 15px;
+}
+
+.producto {
+    background: #0d2639;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 17px;
+
+    padding: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.15);
+}
+
+.producto:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-nombre {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.producto-descripcion {
+    color: #91a9ba;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    margin-top: 6px;
+}
+
+.producto-precio {
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-top: 10px;
+}
+
+.agregar {
+    align-self: center;
+
+    border: none;
+
+    background: white;
+
+    color: #071a2b;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.agregar:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   BOTÓN CARRITO
+========================= */
+
+.boton-carrito {
+    position: fixed;
+
+    bottom: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 50;
+
+    width: calc(100% - 30px);
+
+    max-width: 500px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    background: white;
+
+    color: #071a2b;
+
+    padding: 16px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    cursor: pointer;
+}
+
+#cantidadCarrito {
+    background: #071a2b;
+
+    color: white;
+
+    border-radius: 50%;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background: rgba(0,0,0,0.72);
+
+    padding: 15px;
+
+    overflow-y: auto;
+}
+
+.modal.abierto {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+.carrito {
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #092033;
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 25px 18px 20px;
+
+    position: relative;
+}
+
+.carrito h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.cerrar {
+    position: absolute;
+
+    right: 16px;
+    top: 14px;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #16364c;
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ITEMS DEL CARRITO
+========================= */
+
+.item-carrito {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.item-nombre {
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.item-precio {
+    font-size: 13px;
+
+    color: #b6c8d5;
+
+    margin-top: 4px;
+}
+
+.controles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.controles button {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #183b53;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.cantidad {
+    font-weight: 700;
+}
+
+.carrito-vacio {
+    color: #8299a9;
+
+    font-size: 14px;
+
+    padding: 10px 0 20px;
+}
+
+.total-final {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 18px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.total-final strong {
+    font-size: 24px;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.datos-pedido {
+    margin-top: 22px;
+}
+
+.datos-pedido h3 {
+    margin-bottom: 15px;
+
+    font-size: 17px;
+}
+
+.datos-pedido label {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-top: 14px;
+
+    margin-bottom: 6px;
+
+    color: #afc2cf;
+}
+
+.datos-pedido input,
+.datos-pedido select,
+.datos-pedido textarea {
+    width: 100%;
+
+    border: 1px solid #29495e;
+
+    background: #0d2a3e;
+
+    color: white;
+
+    border-radius: 11px;
+
+    padding: 13px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    outline: none;
+}
+
+.datos-pedido textarea {
+    min-height: 85px;
+
+    resize: vertical;
+}
+
+.datos-pedido input:focus,
+.datos-pedido select:focus,
+.datos-pedido textarea:focus {
+    border-color: white;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.boton-whatsapp {
+    width: 100%;
+
+    margin-top: 22px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 16px;
+
+    background: #25d366;
+
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 50px 20px 100px;
+
+    color: #718898;
+
+    font-size: 12px;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+
+    color: white;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 43px;
+    }
+
+    .header {
+        padding: 35px 15px 28px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto {
+        padding: 16px;
+    }
+
+    .menu {
+        padding: 25px 13px;
+    }
+
+    .titulo-seccion h1 {
+        font-size: 27px;
+    }
+
+}
