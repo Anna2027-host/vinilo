@@ -11,307 +11,306 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- ENCABEZADO -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+</head> 
+ 
+<body> 
+ 
+    <!-- ENCABEZADO --> 
     <header class="header">
 
-        <div class="logo" onclick="volverInicio()">
-            <img src="img/logo.png" alt="Vinilo Restó Bar">
+     <div class="logo-izquierda" onclick="volverInicio()">
+            <img src="img/logo.png" alt="Vinilo">
         </div>
 
-        <div class="subtitulo">
-            RESTÓ • BAR • PUB
+        <div class="texto-encabezado">
+         <div class="subtitulo">RESTÓ • BAR • PUB</div>
+            <div class="bienvenida">Bienvenidos a Vinilo</div>
         </div>
-
-        <p class="bienvenida">
-            Pedí lo que quieras y disfrutá 🎶
-        </p>
 
     </header>
-
-
-    <!-- CATEGORÍAS -->
-    <nav class="categorias" id="categorias">
-
-        <button class="categoria activa"
-                data-categoria="pizzas"
-                onclick="mostrarCategoria('pizzas')">
-            🍕 Pizzas
-        </button>
-
-        <button class="categoria"
-                data-categoria="empanadas"
-                onclick="mostrarCategoria('empanadas')">
-            🥟 Empanadas
-        </button>
-
-        <button class="categoria"
-                data-categoria="sandwiches"
-                onclick="mostrarCategoria('sandwiches')">
-            🥪 Sándwiches
-        </button>
-
-        <button class="categoria"
-                data-categoria="papas"
-                onclick="mostrarCategoria('papas')">
-            🍟 Papas
-        </button>
-
-        <button class="categoria"
-                data-categoria="postres"
-                onclick="mostrarCategoria('postres')">
-            🍰 Postres
-        </button>
-
-        <button class="categoria"
-                data-categoria="bebidas"
-                onclick="mostrarCategoria('bebidas')">
-            🥤 Bebidas
-        </button>
-
-    </nav>
-
-
-    <!-- CARTA -->
-    <main>
-
-        <section class="menu">
-
-            <div class="titulo-seccion">
-
-                <h1 id="tituloCategoria">
-                    Pizzas
-                </h1>
-
-                <p id="subtituloCategoria">
-                    Elegí tus favoritos
-                </p>
-
-            </div>
-
-            <div id="productos" class="productos"></div>
-
-        </section>
-
-    </main>
-
-
-    <!-- BOTÓN CARRITO -->
-    <button class="boton-carrito" onclick="abrirCarrito()">
-
-        <span>
-            🛒 Ver pedido
-        </span>
-
-        <span id="cantidadCarrito">
-            0
-        </span>
-
-        <span id="totalCarrito">
-            $0
-        </span>
-
-    </button>
-
-
-    <!-- CARRITO -->
-    <div id="modalCarrito" class="modal">
-
-        <div class="carrito">
-
-            <button class="cerrar" onclick="cerrarCarrito()">
-                ×
-            </button>
-
-            <h2>
-                Tu pedido 🛒
-            </h2>
-
-            <div id="listaCarrito"></div>
-
-            <div class="carrito-vacio" id="carritoVacio">
-                Todavía no agregaste productos.
-            </div>
-
-            <div class="total-final">
-
-                <span>
-                    Total
-                </span>
-
-                <strong id="totalFinal">
-                    $0
-                </strong>
-
-            </div>
-
-
-            <!-- DATOS DEL CLIENTE -->
-            <div class="datos-pedido">
-
-                <h3>
-                    Datos del pedido
-                </h3>
-
-                <label>
-                    Nombre
-                </label>
-
-                <input
-                    type="text"
-                    id="nombreCliente"
-                    placeholder="Tu nombre"
-                >
-
-
-                <label>
-                    ¿Cómo querés recibirlo?
-                </label>
-
-                <select id="tipoPedido">
-
-                    <option value="Retiro por el local">
-                        Retiro por el local
-                    </option>
-
-                    <option value="Delivery">
-                        Delivery
-                    </option>
-
-                </select>
-
-
-                <label>
-                    Dirección
-                </label>
-
-                <input
-                    type="text"
-                    id="direccionCliente"
-                    placeholder="Solo si es delivery"
-                >
-
-
-                <label>
-                    Forma de pago
-                </label>
-
-                <select id="formaPago">
-
-                    <option value="Efectivo">
-                        Efectivo
-                    </option>
-
-                    <option value="Transferencia">
-                        Transferencia
-                    </option>
-
-                </select>
-
-
-                <label>
-                    Observaciones
-                </label>
-
-                <textarea
-                    id="observaciones"
-                    placeholder="Ej: sin cebolla, agregar cubiertos..."
-                ></textarea>
-
-            </div>
-
-
-            <button
-                class="boton-whatsapp"
-                onclick="enviarWhatsApp()"
-            >
-                📲 ENVIAR PEDIDO POR WHATSAPP
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- MODAL PARA ELEGIR EMPANADAS -->
-    <div id="modalEmpanadas" class="modal">
-
-        <div class="selector-empanadas">
-
-            <button
-                class="cerrar"
-                onclick="cerrarEmpanadas()"
-            >
-                ×
-            </button>
-
-
-            <h2 id="tituloEmpanadas">
-                Elegí tus empanadas
-            </h2>
-
-            <p class="texto-selector">
-                Elegí los gustos que quieras.
-            </p>
-
-
-            <div class="contador-empanadas">
-
-                Seleccionadas:
-
-                <strong id="cantidadSeleccionada">
-                    0
-                </strong>
-
-                /
-
-                <strong id="cantidadNecesaria">
-                    6
-                </strong>
-
-            </div>
-
-
-            <div id="listaGustosEmpanadas"></div>
-
-
-            <button
-                id="botonConfirmarEmpanadas"
-                class="boton-confirmar-empanadas"
-                onclick="confirmarEmpanadas()"
-                disabled
-            >
-                AGREGAR AL PEDIDO
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
-            VINILO
-        </div>
-
-        <p>
-            Restó • Bar • Pub
-        </p>
-
-        <p>
-            Gracias por elegirnos 🤍
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+ 
+    
+ 
+ 
+    <!-- CATEGORÍAS --> 
+    <nav class="categorias" id="categorias"> 
+ 
+        <button class="categoria activa" 
+                data-categoria="pizzas" 
+                onclick="mostrarCategoria('pizzas')"> 
+            🍕 Pizzas 
+        </button> 
+ 
+        <button class="categoria" 
+                data-categoria="empanadas" 
+                onclick="mostrarCategoria('empanadas')"> 
+            🥟 Empanadas 
+        </button> 
+ 
+        <button class="categoria" 
+                data-categoria="sandwiches" 
+                onclick="mostrarCategoria('sandwiches')"> 
+            🥪 Sándwiches 
+        </button> 
+ 
+        <button class="categoria" 
+                data-categoria="papas" 
+                onclick="mostrarCategoria('papas')"> 
+            🍟 Papas 
+        </button> 
+ 
+        <button class="categoria" 
+                data-categoria="postres" 
+                onclick="mostrarCategoria('postres')"> 
+            🍰 Postres 
+        </button> 
+ 
+        <button class="categoria" 
+                data-categoria="bebidas" 
+                onclick="mostrarCategoria('bebidas')"> 
+            🥤 Bebidas 
+        </button> 
+ 
+    </nav> 
+ 
+ 
+    <!-- CARTA --> 
+    <main> 
+ 
+        <section class="menu"> 
+ 
+            <div class="titulo-seccion"> 
+ 
+                <h1 id="tituloCategoria"> 
+                    Pizzas 
+                </h1> 
+ 
+                <p id="subtituloCategoria"> 
+                    Elegí tus favoritos 
+                </p> 
+ 
+            </div> 
+ 
+            <div id="productos" class="productos"></div> 
+ 
+        </section> 
+ 
+    </main> 
+ 
+ 
+    <!-- BOTÓN CARRITO --> 
+    <button class="boton-carrito" onclick="abrirCarrito()"> 
+ 
+        <span> 
+            🛒 Ver pedido 
+        </span> 
+ 
+        <span id="cantidadCarrito"> 
+            0 
+        </span> 
+ 
+        <span id="totalCarrito"> 
+            $0 
+        </span> 
+ 
+    </button> 
+ 
+ 
+    <!-- CARRITO --> 
+    <div id="modalCarrito" class="modal"> 
+ 
+        <div class="carrito"> 
+ 
+            <button class="cerrar" onclick="cerrarCarrito()"> 
+                × 
+            </button> 
+ 
+            <h2> 
+                Tu pedido 🛒 
+            </h2> 
+ 
+            <div id="listaCarrito"></div> 
+ 
+            <div class="carrito-vacio" id="carritoVacio"> 
+                Todavía no agregaste productos. 
+            </div> 
+ 
+            <div class="total-final"> 
+ 
+                <span> 
+                    Total 
+                </span> 
+ 
+                <strong id="totalFinal"> 
+                    $0 
+                </strong> 
+ 
+            </div> 
+ 
+ 
+            <!-- DATOS DEL CLIENTE --> 
+            <div class="datos-pedido"> 
+ 
+                <h3> 
+                    Datos del pedido 
+                </h3> 
+ 
+                <label> 
+                    Nombre 
+                </label> 
+ 
+                <input 
+                    type="text" 
+                    id="nombreCliente" 
+                    placeholder="Tu nombre" 
+                > 
+ 
+ 
+                <label> 
+                    ¿Cómo querés recibirlo? 
+                </label> 
+ 
+                <select id="tipoPedido"> 
+ 
+                    <option value="Retiro por el local"> 
+                        Retiro por el local 
+                    </option> 
+ 
+                    <option value="Delivery"> 
+                        Delivery 
+                    </option> 
+ 
+                </select> 
+ 
+ 
+                <label> 
+                    Dirección 
+                </label> 
+ 
+                <input 
+                    type="text" 
+                    id="direccionCliente" 
+                    placeholder="Solo si es delivery" 
+                > 
+ 
+ 
+                <label> 
+                    Forma de pago 
+                </label> 
+ 
+                <select id="formaPago"> 
+ 
+                    <option value="Efectivo"> 
+                        Efectivo 
+                    </option> 
+ 
+                    <option value="Transferencia"> 
+                        Transferencia 
+                    </option> 
+ 
+                </select> 
+ 
+ 
+                <label> 
+                    Observaciones 
+                </label> 
+ 
+                <textarea 
+                    id="observaciones" 
+                    placeholder="Ej: sin cebolla, agregar cubiertos..." 
+                ></textarea> 
+ 
+            </div> 
+ 
+ 
+            <button 
+                class="boton-whatsapp" 
+                onclick="enviarWhatsApp()" 
+            > 
+                📲 ENVIAR PEDIDO POR WHATSAPP 
+            </button> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+ 
+    <!-- MODAL PARA ELEGIR EMPANADAS --> 
+    <div id="modalEmpanadas" class="modal"> 
+ 
+        <div class="selector-empanadas"> 
+ 
+            <button 
+                class="cerrar" 
+                onclick="cerrarEmpanadas()" 
+            > 
+                × 
+            </button> 
+ 
+ 
+            <h2 id="tituloEmpanadas"> 
+                Elegí tus empanadas 
+            </h2> 
+ 
+            <p class="texto-selector"> 
+                Elegí los gustos que quieras. 
+            </p> 
+ 
+ 
+            <div class="contador-empanadas"> 
+ 
+                Seleccionadas: 
+ 
+                <strong id="cantidadSeleccionada"> 
+                    0 
+                </strong> 
+ 
+                / 
+ 
+                <strong id="cantidadNecesaria"> 
+                    6 
+                </strong> 
+ 
+            </div> 
+ 
+ 
+            <div id="listaGustosEmpanadas"></div> 
+ 
+ 
+            <button 
+                id="botonConfirmarEmpanadas" 
+                class="boton-confirmar-empanadas" 
+                onclick="confirmarEmpanadas()" 
+                disabled 
+            > 
+                AGREGAR AL PEDIDO 
+            </button> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+ 
+    <!-- FOOTER --> 
+    <footer> 
+ 
+        <div class="footer-logo"> 
+            VINILO 
+        </div> 
+ 
+        <p> 
+            Restó • Bar • Pub 
+        </p> 
+ 
+        <p> 
+            Gracias por elegirnos 🤍 
+        </p> 
+ 
+    </footer> 
+ 
+ 
+    <script src="script.js"></script> 
+ 
+</body> 
+</html>                        

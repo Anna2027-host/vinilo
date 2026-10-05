@@ -2,59 +2,79 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  }
+}
 
 body {
-font-family: 'Montserrat', sans-serif;
-background: #071a2b;
-color: white;
-padding-bottom: 90px;
+  font-family: 'Montserrat', sans-serif;
+  background: #071a2b;
+  color: white;
+  padding-bottom: 90px;
 }
 
-
+/* =========================
+ENCABEZADO
+========================= */
 
 .header {
-background:
-linear-gradient(
-rgba(2, 15, 27, 0.82),
-rgba(2, 15, 27, 0.92)
-),
-radial-gradient(
-circle at center,
-#174b70,
-#020b13
-);
+  position: relative;
 
-text-align: center;
-padding: 45px 20px 35px;
+  background:
+  linear-gradient(
+    rgba(2, 15, 27, 0.82),
+    rgba(2, 15, 27, 0.92)
+  ),
+  radial-gradient(
+    circle at center,
+    #174b70,
+    #020b13
+  );
 
-border-bottom: 2px solid #a51d2d;
+  text-align: center;
 
+  padding: 45px 20px 35px;
 
+  border-bottom: 2px solid #a51d2d;
+
+  min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* LOGO A LA IZQUIERDA */
+
 .logo {
-    text-align: left;
-    cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  cursor: pointer;
 }
 
 .logo img {
-    width: 130px;
-    height: auto;
-    display: block;
+  width: 130px;
+  height: auto;
+  display: block;
 }
 
+/* TEXTO CENTRADO */
+
 .subtitulo {
-font-size: 12px;
-letter-spacing: 5px;
-color: #e6eef3;
-margin-top: 5px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #e6eef3;
+  margin-top: 5px;
+  text-align: center;
 }
 
 .bienvenida {
-margin-top: 22px;
-font-size: 14px;
-color: #c5d5df;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #c5d5df;
+  text-align: center;
 }
 
 /* =========================
@@ -62,66 +82,60 @@ CATEGORÍAS
 ========================= */
 
 .categorias {
-position: sticky;
-top: 0;
-z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 
+  display: flex;
+  gap: 9px;
 
-display: flex;
-gap: 9px;
+  overflow-x: auto;
 
-overflow-x: auto;
+  padding: 14px;
 
-padding: 14px;
+  background: rgba(4, 18, 30, 0.97);
 
-background: rgba(4, 18, 30, 0.97);
+  backdrop-filter: blur(10px);
 
-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 
-border-bottom: 1px solid rgba(255,255,255,0.08);
-
-scrollbar-width: none;
-
-
+  scrollbar-width: none;
 }
 
 .categorias::-webkit-scrollbar {
-display: none;
+  display: none;
 }
 
 .categoria {
-flex-shrink: 0;
+  flex-shrink: 0;
 
+  border: 1px solid #376782;
+  background: #12344d;
 
-border: 1px solid #376782;
-background: #12344d;
+  color: #e6eef3;
 
-color: #e6eef3;
+  padding: 10px 15px;
 
-padding: 10px 15px;
+  border-radius: 30px;
 
-border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 
-font-size: 12px;
-font-weight: 600;
+  cursor: pointer;
 
-cursor: pointer;
-
-transition: 0.2s;
-
-
+  transition: 0.2s;
 }
 
 .categoria:hover {
-background: #1b5277;
+  background: #1b5277;
 }
 
 .categoria.activa {
-background: #a51d2d;
-color: white;
-border-color: #a51d2d;
+  background: #3abedf;
+  color: white;
+  border-color: #3abedf;
 }
 
 /* =========================
@@ -129,38 +143,35 @@ CARTA
 ========================= */
 
 .menu {
-max-width: 900px;
-margin: auto;
-padding: 30px 16px;
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 16px;
 }
 
 .titulo-seccion {
-margin-bottom: 22px;
+  margin-bottom: 22px;
 }
 
 .titulo-seccion h1 {
-font-family: 'Playfair Display', serif;
-font-size: 30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
 }
 
 .titulo-seccion p {
-color: #9db5c5;
-margin-top: 4px;
-font-size: 13px;
+  color: #9db5c5;
+  margin-top: 4px;
+  font-size: 13px;
 }
 
 .productos {
-display: grid;
+  display: grid;
 
-
-grid-template-columns: repeat(
+  grid-template-columns: repeat(
     auto-fit,
     minmax(280px, 1fr)
-);
+  );
 
-gap: 15px;
-
-
+  gap: 15px;
 }
 
 /* =========================
@@ -168,68 +179,59 @@ PRODUCTOS
 ========================= */
 
 .producto {
-background: #0d2d45;
+  background: #0d2d45;
 
+  border: 1px solid rgba(86,139,170,0.28);
 
-border: 1px solid rgba(86,139,170,0.28);
+  border-radius: 17px;
 
-border-radius: 17px;
+  padding: 18px;
 
-padding: 18px;
+  display: flex;
 
-display: flex;
+  justify-content: space-between;
 
-justify-content: space-between;
+  gap: 12px;
 
-gap: 12px;
+  transition: 0.2s;
 
-transition: 0.2s;
-
-box-shadow:
+  box-shadow:
     0 5px 20px rgba(0,0,0,0.20);
-
-
 }
 
 .producto:hover {
-transform: translateY(-2px);
-border-color: #a51d2d;
+  transform: translateY(-2px);
+  border-color: #3abedf;
 }
 
 .producto-info {
-flex: 1;
+  flex: 1;
 }
 
 .producto-nombre {
-font-size: 15px;
-font-weight: 700;
-line-height: 1.35;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .producto-descripcion {
-color: #9db5c5;
+  color: #9db5c5;
 
+  font-size: 12px;
 
-font-size: 12px;
+  line-height: 1.5;
 
-line-height: 1.5;
-
-margin-top: 6px;
-
-
+  margin-top: 6px;
 }
 
 .producto-precio {
-font-size: 16px;
+  font-size: 16px;
 
+  font-weight: 800;
 
-font-weight: 800;
+  color: #ffffff;
 
-color: #ffffff;
-
-margin-top: 10px;
-
-
+  margin-top: 10px;
 }
 
 /* =========================
@@ -237,15 +239,15 @@ PRODUCTO AGOTADO
 ========================= */
 
 .producto.agotado {
-opacity: 0.65;
-border-color: rgba(165,29,45,0.45);
+  opacity: 0.65;
+  border-color: rgba(165,29,45,0.45);
 }
 
 .producto-agotado {
-color: #ff6675;
-font-size: 12px;
-font-weight: 800;
-margin-top: 9px;
+  color: #ee0d23;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 9px;
 }
 
 /* =========================
@@ -253,34 +255,31 @@ BOTÓN +
 ========================= */
 
 .agregar {
-align-self: center;
+  align-self: center;
 
+  border: none;
 
-border: none;
+  background: #3abedf;
 
-background: #a51d2d;
+  color: white;
 
-color: white;
+  width: 40px;
+  height: 40px;
 
-width: 40px;
-height: 40px;
+  border-radius: 50%;
 
-border-radius: 50%;
+  font-size: 23px;
 
-font-size: 23px;
+  font-weight: 600;
 
-font-weight: 600;
+  cursor: pointer;
 
-cursor: pointer;
-
-transition: 0.2s;
-
-
+  transition: 0.2s;
 }
 
 .agregar:hover {
-transform: scale(1.08);
-background: #c52b3c;
+  transform: scale(1.08);
+  background: #3abedf;
 }
 
 /* =========================
@@ -288,62 +287,50 @@ OPCIONES DE PIZZA
 ========================= */
 
 .opciones-pizza {
-display: flex;
+  display: flex;
 
+  gap: 8px;
 
-gap: 8px;
-
-margin-top: 14px;
-
-
+  margin-top: 14px;
 }
 
 .opcion-pizza {
-flex: 1;
+  flex: 1;
 
+  border: 1px solid #376782;
 
-border: 1px solid #376782;
+  background: #12344d;
 
-background: #12344d;
+  color: white;
 
-color: white;
+  border-radius: 11px;
 
-border-radius: 11px;
+  padding: 10px 6px;
 
-padding: 10px 6px;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
 
-cursor: pointer;
-
-transition: 0.2s;
-
-
+  transition: 0.2s;
 }
 
 .opcion-pizza:hover {
-background: #1b5277;
-border-color: #a51d2d;
+  background: #1b5277;
+  border-color: #3abedf;
 }
 
 .opcion-pizza strong {
-display: block;
+  display: block;
 
+  font-size: 12px;
 
-font-size: 12px;
-
-margin-bottom: 3px;
-
-
+  margin-bottom: 3px;
 }
 
 .opcion-pizza span {
-font-size: 12px;
+  font-size: 12px;
 
-
-font-weight: 700;
-
-
+  font-weight: 700;
 }
 
 /* =========================
@@ -351,19 +338,17 @@ CATEGORÍA EXTRAS DENTRO DE PIZZAS
 ========================= */
 
 .subtitulo-productos {
-grid-column: 1 / -1;
+  grid-column: 1 / -1;
 
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
 
-font-size: 23px;
+  font-size: 23px;
 
-margin-top: 15px;
+  margin-top: 15px;
 
-margin-bottom: -3px;
+  margin-bottom: -3px;
 
-color: white;
-
-
+  color: white;
 }
 
 /* =========================
@@ -371,66 +356,55 @@ BOTONES DE PACK DE EMPANADAS
 ========================= */
 
 .pack-empanadas {
-background: #0d2d45;
+  background: #0d2d45;
 
+  border: 1px solid rgba(86,139,170,0.28);
 
-border: 1px solid rgba(86,139,170,0.28);
+  border-radius: 17px;
 
-border-radius: 17px;
+  padding: 18px;
 
-padding: 18px;
-
-margin-top: 15px;
-
-
+  margin-top: 15px;
 }
 
 .pack-empanadas h3 {
-font-size: 16px;
+  font-size: 16px;
 
-
-margin-bottom: 5px;
-
-
+  margin-bottom: 5px;
 }
 
 .pack-empanadas p {
-color: #9db5c5;
+  color: #9db5c5;
 
-font-size: 12px;
+  font-size: 12px;
 
-margin-bottom: 13px;
-
-
+  margin-bottom: 13px;
 }
 
 .boton-pack {
-width: 100%;
+  width: 100%;
 
+  border: none;
 
-border: none;
+  background: #3abedf;
 
-background: #a51d2d;
+  color: white;
 
-color: white;
+  border-radius: 11px;
 
-border-radius: 11px;
+  padding: 13px;
 
-padding: 13px;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 
-font-weight: 700;
+  cursor: pointer;
 
-cursor: pointer;
-
-transition: 0.2s;
-
-
+  transition: 0.2s;
 }
 
 .boton-pack:hover {
-background: #c52b3c;
+  background: #3abedf;
 }
 
 /* =========================
@@ -438,67 +412,62 @@ CARRITO
 ========================= */
 
 .boton-carrito {
-position: fixed;
+  position: fixed;
 
+  bottom: 18px;
 
-bottom: 18px;
+  left: 50%;
 
-left: 50%;
+  transform: translateX(-50%);
 
-transform: translateX(-50%);
+  z-index: 50;
 
-z-index: 50;
+  width: calc(100% - 30px);
 
-width: calc(100% - 30px);
+  max-width: 500px;
 
-max-width: 500px;
+  border: none;
 
-border: none;
+  border-radius: 17px;
 
-border-radius: 17px;
+  background: white;
 
-background: white;
+  color: #071a2b;
 
-color: #071a2b;
+  padding: 16px 18px;
 
-padding: 16px 18px;
+  display: flex;
 
-display: flex;
+  align-items: center;
 
-align-items: center;
+  justify-content: space-between;
 
-justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 
-font-weight: 800;
-
-box-shadow:
+  box-shadow:
     0 10px 30px rgba(0,0,0,0.4);
 
-cursor: pointer;
-
-
+  cursor: pointer;
 }
 
 #cantidadCarrito {
-background: #a51d2d;
+  background: #a51d2d;
 
-color: white;
+  color: white;
 
-border-radius: 50%;
+  border-radius: 50%;
 
-width: 25px;
-height: 25px;
+  width: 25px;
+  height: 25px;
 
-display: flex;
+  display: flex;
 
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-font-size: 11px;
-
-
+  font-size: 11px;
 }
 
 /* =========================
@@ -506,32 +475,27 @@ MODALES
 ========================= */
 
 .modal {
-display: none;
+  display: none;
 
+  position: fixed;
 
-position: fixed;
+  inset: 0;
 
-inset: 0;
+  z-index: 100;
 
-z-index: 100;
+  background: rgba(0,0,0,0.75);
 
-background: rgba(0,0,0,0.75);
+  padding: 15px;
 
-padding: 15px;
-
-overflow-y: auto;
-
-
+  overflow-y: auto;
 }
 
 .modal.abierto {
-display: flex;
+  display: flex;
 
-align-items: flex-end;
+  align-items: flex-end;
 
-justify-content: center;
-
-
+  justify-content: center;
 }
 
 /* =========================
@@ -539,62 +503,53 @@ CARRITO MODAL
 ========================= */
 
 .carrito {
-width: 100%;
+  width: 100%;
 
+  max-width: 600px;
 
-max-width: 600px;
+  max-height: 92vh;
 
-max-height: 92vh;
+  overflow-y: auto;
 
-overflow-y: auto;
+  background: #092033;
 
-background: #092033;
+  border-radius: 24px 24px 0 0;
 
-border-radius: 24px 24px 0 0;
+  padding: 25px 18px 20px;
 
-padding: 25px 18px 20px;
+  position: relative;
 
-position: relative;
-
-border-top: 2px solid #a51d2d;
-
-
+  border-top: 2px solid #a51d2d;
 }
 
 .carrito h2 {
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
 
+  font-size: 28px;
 
-font-size: 28px;
-
-margin-bottom: 20px;
-
-
+  margin-bottom: 20px;
 }
 
 .cerrar {
-position: absolute;
+  position: absolute;
 
+  right: 16px;
+  top: 14px;
 
-right: 16px;
-top: 14px;
+  width: 35px;
+  height: 35px;
 
-width: 35px;
-height: 35px;
+  border-radius: 50%;
 
-border-radius: 50%;
+  border: none;
 
-border: none;
+  background: #163d56;
 
-background: #163d56;
+  color: white;
 
-color: white;
+  font-size: 23px;
 
-font-size: 23px;
-
-cursor: pointer;
-
-
+  cursor: pointer;
 }
 
 /* =========================
@@ -602,84 +557,66 @@ ITEMS CARRITO
 ========================= */
 
 .item-carrito {
-display: flex;
+  display: flex;
 
+  justify-content: space-between;
 
-justify-content: space-between;
+  gap: 10px;
 
-gap: 10px;
+  padding: 14px 0;
 
-padding: 14px 0;
-
-border-bottom: 1px solid rgba(255,255,255,0.08);
-
-
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .item-nombre {
-font-size: 14px;
+  font-size: 14px;
 
-
-font-weight: 700;
-
-
+  font-weight: 700;
 }
 
 .item-precio {
-font-size: 13px;
+  font-size: 13px;
 
+  color: #b6c8d5;
 
-color: #b6c8d5;
-
-margin-top: 4px;
-
-
+  margin-top: 4px;
 }
 
 .controles {
-display: flex;
+  display: flex;
 
+  align-items: center;
 
-align-items: center;
-
-gap: 9px;
-
-
+  gap: 9px;
 }
 
 .controles button {
-width: 30px;
-height: 30px;
+  width: 30px;
+  height: 30px;
 
+  border-radius: 50%;
 
-border-radius: 50%;
+  border: none;
 
-border: none;
+  background: #1a4965;
 
-background: #1a4965;
+  color: white;
 
-color: white;
+  font-size: 18px;
 
-font-size: 18px;
-
-cursor: pointer;
-
-
+  cursor: pointer;
 }
 
 .cantidad {
-font-weight: 700;
+  font-weight: 700;
 }
 
 .carrito-vacio {
-color: #8299a9;
+  color: #8299a9;
 
+  font-size: 14px;
 
-font-size: 14px;
-
-padding: 10px 0 20px;
-
-
+  padding: 10px 0 20px;
 }
 
 /* =========================
@@ -687,25 +624,23 @@ TOTAL
 ========================= */
 
 .total-final {
-display: flex;
+  display: flex;
 
+  justify-content: space-between;
 
-justify-content: space-between;
+  align-items: center;
 
-align-items: center;
+  font-size: 18px;
 
-font-size: 18px;
+  padding: 20px 0;
 
-padding: 20px 0;
-
-border-bottom: 1px solid rgba(255,255,255,0.08);
-
-
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .total-final strong {
-font-size: 24px;
-color: #ffffff;
+  font-size: 24px;
+
+  color: #ffffff;
 }
 
 /* =========================
@@ -713,71 +648,59 @@ DATOS PEDIDO
 ========================= */
 
 .datos-pedido {
-margin-top: 22px;
+  margin-top: 22px;
 }
 
 .datos-pedido h3 {
-margin-bottom: 15px;
+  margin-bottom: 15px;
 
-
-font-size: 17px;
-
-
+  font-size: 17px;
 }
 
 .datos-pedido label {
-display: block;
+  display: block;
 
+  font-size: 12px;
 
-font-size: 12px;
+  font-weight: 600;
 
-font-weight: 600;
+  margin-top: 14px;
 
-margin-top: 14px;
+  margin-bottom: 6px;
 
-margin-bottom: 6px;
-
-color: #afc2cf;
-
-
+  color: #afc2cf;
 }
 
 .datos-pedido input,
 .datos-pedido select,
 .datos-pedido textarea {
-width: 100%;
+  width: 100%;
 
+  border: 1px solid #376782;
 
-border: 1px solid #376782;
+  background: #0d2d45;
 
-background: #0d2d45;
+  color: white;
 
-color: white;
+  border-radius: 11px;
 
-border-radius: 11px;
+  padding: 13px;
 
-padding: 13px;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
-
-outline: none;
-
-
+  outline: none;
 }
 
 .datos-pedido textarea {
-min-height: 85px;
+  min-height: 85px;
 
-
-resize: vertical;
-
-
+  resize: vertical;
 }
 
 .datos-pedido input:focus,
 .datos-pedido select:focus,
 .datos-pedido textarea:focus {
-border-color: #a51d2d;
+  border-color: #a51d2d;
 }
 
 /* =========================
@@ -785,29 +708,27 @@ WHATSAPP
 ========================= */
 
 .boton-whatsapp {
-width: 100%;
+  width: 100%;
 
+  margin-top: 22px;
 
-margin-top: 22px;
+  border: none;
 
-border: none;
+  border-radius: 13px;
 
-border-radius: 13px;
+  padding: 16px;
 
-padding: 16px;
+  background: #25d366;
 
-background: #25d366;
+  color: white;
 
-color: white;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 
-font-size: 14px;
+  font-weight: 800;
 
-font-weight: 800;
-
-cursor: pointer;
-
+  cursor: pointer;
 }
 
 /* =========================
@@ -815,170 +736,140 @@ SELECTOR DE EMPANADAS
 ========================= */
 
 .selector-empanadas {
-width: 100%;
+  width: 100%;
 
+  max-width: 600px;
 
-max-width: 600px;
+  max-height: 92vh;
 
-max-height: 92vh;
+  overflow-y: auto;
 
-overflow-y: auto;
+  background: #092033;
 
-background: #092033;
+  border-radius: 24px 24px 0 0;
 
-border-radius: 24px 24px 0 0;
+  padding: 25px 18px 20px;
 
-padding: 25px 18px 20px;
+  position: relative;
 
-position: relative;
-
-border-top: 2px solid #a51d2d;
-
-
+  border-top: 2px solid #a51d2d;
 }
 
 .selector-empanadas h2 {
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
 
+  font-size: 27px;
 
-font-size: 27px;
-
-margin-bottom: 5px;
-
-
+  margin-bottom: 5px;
 }
 
 .texto-selector {
-color: #91a9ba;
+  color: #91a9ba;
 
+  font-size: 13px;
 
-font-size: 13px;
-
-margin-bottom: 15px;
-
-
+  margin-bottom: 15px;
 }
 
 .contador-empanadas {
-background: #12344d;
+  background: #12344d;
 
+  border-radius: 12px;
 
-border-radius: 12px;
+  padding: 13px;
 
-padding: 13px;
+  text-align: center;
 
-text-align: center;
+  margin-bottom: 15px;
 
-margin-bottom: 15px;
+  font-size: 14px;
 
-font-size: 14px;
-
-border: 1px solid rgba(86,139,170,0.25);
-
-
+  border: 1px solid rgba(86,139,170,0.25);
 }
 
 .gusto-empanada {
-display: flex;
+  display: flex;
 
+  align-items: center;
 
-align-items: center;
+  justify-content: space-between;
 
-justify-content: space-between;
+  gap: 10px;
 
-gap: 10px;
+  padding: 13px 0;
 
-padding: 13px 0;
-
-border-bottom: 1px solid rgba(255,255,255,0.08);
-
-
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .gusto-nombre {
-font-size: 14px;
+  font-size: 14px;
 
-
-font-weight: 600;
-
+  font-weight: 600;
 }
 
 .controles-gusto {
-display: flex;
+  display: flex;
 
+  align-items: center;
 
-align-items: center;
-
-gap: 10px;
-
-
+  gap: 10px;
 }
 
 .controles-gusto button {
-width: 34px;
-height: 34px;
+  width: 34px;
+  height: 34px;
 
+  border-radius: 50%;
 
-border-radius: 50%;
+  border: none;
 
-border: none;
+  background: #1a4965;
 
-background: #1a4965;
+  color: white;
 
-color: white;
+  font-size: 20px;
 
-font-size: 20px;
-
-cursor: pointer;
-
+  cursor: pointer;
 }
 
 .cantidad-gusto {
-min-width: 20px;
+  min-width: 20px;
 
+  text-align: center;
 
-text-align: center;
-
-font-weight: 700;
-
-
+  font-weight: 700;
 }
 
 .boton-confirmar-empanadas {
-width: 100%;
+  width: 100%;
 
+  margin-top: 20px;
 
-margin-top: 20px;
+  border: none;
 
-border: none;
+  border-radius: 13px;
 
-border-radius: 13px;
+  padding: 16px;
 
-padding: 16px;
+  background: #a51d2d;
 
-background: #a51d2d;
+  color: white;
 
-color: white;
+  font-family: 'Montserrat', sans-serif;
 
-font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 
-font-weight: 800;
-
-cursor: pointer;
-
-
+  cursor: pointer;
 }
 
 .boton-confirmar-empanadas:hover {
-background: #c52b3c;
+  background: #c52b3c;
 }
 
 .boton-confirmar-empanadas:disabled {
-opacity: 0.4;
+  opacity: 0.4;
 
-
-cursor: not-allowed;
-
+  cursor: not-allowed;
 }
 
 /* =========================
@@ -986,31 +877,25 @@ FOOTER
 ========================= */
 
 footer {
-text-align: center;
+  text-align: center;
 
+  padding: 50px 20px 100px;
 
-padding: 50px 20px 100px;
+  color: #718898;
 
-color: #718898;
-
-font-size: 12px;
-
-
+  font-size: 12px;
 }
 
 .footer-logo {
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
 
+  font-size: 27px;
 
-font-size: 27px;
+  color: white;
 
-color: white;
+  letter-spacing: 5px;
 
-letter-spacing: 5px;
-
-margin-bottom: 8px;
-
-
+  margin-bottom: 8px;
 }
 
 /* =========================
@@ -1019,38 +904,50 @@ CELULAR
 
 @media (max-width: 600px) {
 
+  .header {
+    min-height: 135px;
+    padding: 30px 15px 25px;
+  }
 
-.logo {
-    font-size: 43px;
-}
+  .logo {
+    left: 12px;
+  }
 
-.header {
-    padding: 35px 15px 28px;
-}
+  .logo img {
+    width: 75px;
+  }
 
-.productos {
+  .subtitulo {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .bienvenida {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  .productos {
     grid-template-columns: 1fr;
-}
+  }
 
-.producto {
+  .producto {
     padding: 16px;
-}
+  }
 
-.menu {
+  .menu {
     padding: 25px 13px;
-}
+  }
 
-.titulo-seccion h1 {
+  .titulo-seccion h1 {
     font-size: 27px;
-}
+  }
 
-.opciones-pizza {
+  .opciones-pizza {
     gap: 6px;
-}
+  }
 
-.opcion-pizza {
+  .opcion-pizza {
     padding: 9px 4px;
-}
-
-
+  }
 }
