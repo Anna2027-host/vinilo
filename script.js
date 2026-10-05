@@ -12,6 +12,7 @@ const productos = [
         id: 1,
         nombre: "Mozzarella",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 6000 },
             { nombre: "Entera", precio: 12000 }
@@ -22,6 +23,7 @@ const productos = [
         id: 2,
         nombre: "Napolitana",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 10000 },
             { nombre: "Entera", precio: 18000 }
@@ -32,6 +34,7 @@ const productos = [
         id: 3,
         nombre: "Fugazza",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 10000 },
             { nombre: "Entera", precio: 20000 }
@@ -42,6 +45,7 @@ const productos = [
         id: 4,
         nombre: "Rúcula",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 12000 },
             { nombre: "Entera", precio: 20000 }
@@ -52,6 +56,7 @@ const productos = [
         id: 5,
         nombre: "Calabresa",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 12000 },
             { nombre: "Entera", precio: 20000 }
@@ -62,6 +67,7 @@ const productos = [
         id: 6,
         nombre: "Especial",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 10000 },
             { nombre: "Entera", precio: 16000 }
@@ -72,6 +78,7 @@ const productos = [
         id: 7,
         nombre: "Especial con huevo",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 10000 },
             { nombre: "Entera", precio: 18000 }
@@ -82,6 +89,7 @@ const productos = [
         id: 8,
         nombre: "Cremosa Vinilo",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 12000 },
             { nombre: "Entera", precio: 22000 }
@@ -92,6 +100,7 @@ const productos = [
         id: 9,
         nombre: "Explosiva",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Media", precio: 12000 },
             { nombre: "Entera", precio: 24000 }
@@ -102,6 +111,7 @@ const productos = [
         id: 10,
         nombre: "Pizza Lomo",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Mini", precio: 30000 },
             { nombre: "Grande", precio: 50000 }
@@ -112,6 +122,7 @@ const productos = [
         id: 11,
         nombre: "Pizza Nesa",
         categoria: "pizzas",
+        agotado: false,
         opciones: [
             { nombre: "Mini", precio: 25000 },
             { nombre: "Grande", precio: 45000 }
@@ -127,6 +138,7 @@ const productos = [
         id: 20,
         nombre: "Empanada de carne",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -134,6 +146,7 @@ const productos = [
         id: 21,
         nombre: "Empanada de carne dulce",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -141,6 +154,7 @@ const productos = [
         id: 22,
         nombre: "Empanada árabe",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -148,6 +162,7 @@ const productos = [
         id: 23,
         nombre: "Empanada de jamón y queso",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -155,6 +170,7 @@ const productos = [
         id: 24,
         nombre: "Empanada de queso y cebolla",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -162,6 +178,7 @@ const productos = [
         id: 25,
         nombre: "Empanada de pollo",
         categoria: "empanadas",
+        agotado: false,
         precio: 2200
     },
 
@@ -174,6 +191,7 @@ const productos = [
         id: 31,
         nombre: "Mila de pollo completa",
         categoria: "sandwiches",
+        agotado: false,
         precio: 12000
     },
 
@@ -181,6 +199,7 @@ const productos = [
         id: 32,
         nombre: "Mila de carne completa",
         categoria: "sandwiches",
+        agotado: false,
         precio: 18000
     },
 
@@ -188,6 +207,7 @@ const productos = [
         id: 33,
         nombre: "Sanguchazo con papas",
         categoria: "sandwiches",
+        agotado: false,
         precio: 22000
     },
 
@@ -195,6 +215,7 @@ const productos = [
         id: 34,
         nombre: "Lomito simple",
         categoria: "sandwiches",
+        agotado: false,
         precio: 18000
     },
 
@@ -202,6 +223,7 @@ const productos = [
         id: 35,
         nombre: "Lomito completo",
         categoria: "sandwiches",
+        agotado: false,
         precio: 18000
     },
 
@@ -209,6 +231,7 @@ const productos = [
         id: 36,
         nombre: "Hamburguesa simple",
         categoria: "sandwiches",
+        agotado: false,
         precio: 12000
     },
 
@@ -216,6 +239,7 @@ const productos = [
         id: 37,
         nombre: "Hamburguesa completa",
         categoria: "sandwiches",
+        agotado: false,
         precio: 12000
     },
 
@@ -228,6 +252,7 @@ const productos = [
         id: 40,
         nombre: "Papas fritas",
         categoria: "papas",
+        agotado: false,
         precio: 10000
     },
 
@@ -235,6 +260,7 @@ const productos = [
         id: 41,
         nombre: "Papas con cheddar, verdeo y huevo",
         categoria: "papas",
+        agotado: false,
         precio: 11000
     },
 
@@ -247,6 +273,7 @@ const productos = [
         id: 50,
         nombre: "Postre",
         categoria: "postres",
+        agotado: false,
         precio: 3000
     },
 
@@ -259,6 +286,7 @@ const productos = [
         id: 60,
         nombre: "Agua 500 ml",
         categoria: "bebidas",
+        agotado: false,
         precio: 3000
     },
 
@@ -266,6 +294,7 @@ const productos = [
         id: 61,
         nombre: "Agua 1,5 L",
         categoria: "bebidas",
+        agotado: false,
         precio: 5000
     },
 
@@ -273,6 +302,7 @@ const productos = [
         id: 62,
         nombre: "Agua saborizada 500 ml",
         categoria: "bebidas",
+        agotado: false,
         precio: 3000
     },
 
@@ -280,6 +310,7 @@ const productos = [
         id: 63,
         nombre: "Agua saborizada 1,5 L",
         categoria: "bebidas",
+        agotado: false,
         precio: 5000
     },
 
@@ -287,6 +318,7 @@ const productos = [
         id: 64,
         nombre: "Pepsi / 7UP 500 ml",
         categoria: "bebidas",
+        agotado: false,
         precio: 4000
     },
 
@@ -294,6 +326,7 @@ const productos = [
         id: 65,
         nombre: "Coca-Cola 1,5 L",
         categoria: "bebidas",
+        agotado: false,
         precio: 5000
     },
 
@@ -301,6 +334,7 @@ const productos = [
         id: 66,
         nombre: "Coca-Cola 1,125 L",
         categoria: "bebidas",
+        agotado: false,
         precio: 8000
     },
 
@@ -308,6 +342,7 @@ const productos = [
         id: 67,
         nombre: "Brahma",
         categoria: "bebidas",
+        agotado: false,
         precio: 8000
     },
 
@@ -315,6 +350,7 @@ const productos = [
         id: 68,
         nombre: "Brahma lata",
         categoria: "bebidas",
+        agotado: false,
         precio: 5000
     },
 
@@ -322,6 +358,7 @@ const productos = [
         id: 69,
         nombre: "Stella Artois",
         categoria: "bebidas",
+        agotado: false,
         precio: 12000
     },
 
@@ -329,6 +366,7 @@ const productos = [
         id: 70,
         nombre: "Stella Artois lata",
         categoria: "bebidas",
+        agotado: false,
         precio: 6000
     },
 
@@ -336,6 +374,7 @@ const productos = [
         id: 71,
         nombre: "Budweiser",
         categoria: "bebidas",
+        agotado: false,
         precio: 4000
     },
 
@@ -343,6 +382,7 @@ const productos = [
         id: 72,
         nombre: "Budweiser lata",
         categoria: "bebidas",
+        agotado: false,
         precio: 4000
     },
 
@@ -350,6 +390,7 @@ const productos = [
         id: 73,
         nombre: "Santa Fe lata",
         categoria: "bebidas",
+        agotado: false,
         precio: 4000
     },
 
@@ -357,6 +398,7 @@ const productos = [
         id: 74,
         nombre: "Trapiche",
         categoria: "bebidas",
+        agotado: false,
         precio: 20000
     },
 
@@ -364,6 +406,7 @@ const productos = [
         id: 75,
         nombre: "Alma Mora",
         categoria: "bebidas",
+        agotado: false,
         precio: 18000
     },
 
@@ -371,6 +414,7 @@ const productos = [
         id: 76,
         nombre: "F. Las Moras",
         categoria: "bebidas",
+        agotado: false,
         precio: 13000
     },
 
@@ -378,6 +422,7 @@ const productos = [
         id: 77,
         nombre: "San Telmo",
         categoria: "bebidas",
+        agotado: false,
         precio: 12000
     },
 
@@ -385,6 +430,7 @@ const productos = [
         id: 78,
         nombre: "Origen",
         categoria: "bebidas",
+        agotado: false,
         precio: 18000
     },
 
@@ -392,6 +438,7 @@ const productos = [
         id: 79,
         nombre: "Est. Mendoza",
         categoria: "bebidas",
+        agotado: false,
         precio: 10000
     },
 
@@ -399,6 +446,7 @@ const productos = [
         id: 80,
         nombre: "Don Valentín",
         categoria: "bebidas",
+        agotado: false,
         precio: 15000
     },
 
@@ -406,6 +454,7 @@ const productos = [
         id: 81,
         nombre: "Fernet jarra",
         categoria: "bebidas",
+        agotado: false,
         precio: 12000
     },
 
@@ -413,6 +462,7 @@ const productos = [
         id: 82,
         nombre: "Fernet medida",
         categoria: "bebidas",
+        agotado: false,
         precio: 5000
     },
 
@@ -420,6 +470,7 @@ const productos = [
         id: 83,
         nombre: "Smirnoff + Speed",
         categoria: "bebidas",
+        agotado: false,
         precio: 12000
     },
 
@@ -427,6 +478,7 @@ const productos = [
         id: 84,
         nombre: "Sky + Speed",
         categoria: "bebidas",
+        agotado: false,
         precio: 18000
     }
 
@@ -574,34 +626,65 @@ function crearProductoSimple(producto) {
     const tarjeta =
         document.createElement("div");
 
-    tarjeta.className = "producto";
+    tarjeta.className =
+        producto.agotado
+            ? "producto agotado"
+            : "producto";
 
-    tarjeta.innerHTML = `
 
-        <div class="producto-info">
+    if (producto.agotado) {
 
-            <div class="producto-nombre">
-                ${producto.nombre}
+        tarjeta.innerHTML = `
+
+            <div class="producto-info">
+
+                <div class="producto-nombre">
+                    ${producto.nombre}
+                </div>
+
+                <div class="producto-precio">
+                    ${formatoPrecio(producto.precio)}
+                </div>
+
+                <div class="producto-agotado">
+                    🔴 AGOTADO
+                </div>
+
             </div>
 
-            <div class="producto-precio">
-                ${formatoPrecio(producto.precio)}
+        `;
+
+    } else {
+
+        tarjeta.innerHTML = `
+
+            <div class="producto-info">
+
+                <div class="producto-nombre">
+                    ${producto.nombre}
+                </div>
+
+                <div class="producto-precio">
+                    ${formatoPrecio(producto.precio)}
+                </div>
+
             </div>
 
-        </div>
+            <button
+                class="agregar"
+                onclick="agregarAlCarrito(
+                    ${producto.id},
+                    '${producto.nombre.replace(/'/g, "\\'")}',
+                    ${producto.precio}
+                )"
+            >
+                +
+            </button>
 
-        <button
-            class="agregar"
-            onclick="agregarAlCarrito(
-                ${producto.id},
-                '${producto.nombre.replace(/'/g, "\\'")}',
-                ${producto.precio}
-            )"
-        >
-            +
-        </button>
+        `;
 
-    `;
+    }
+
 
     contenedor.appendChild(tarjeta);
 
@@ -620,54 +703,83 @@ function crearProductoConOpciones(producto) {
     const tarjeta =
         document.createElement("div");
 
-    tarjeta.className = "producto";
+
+    tarjeta.className =
+        producto.agotado
+            ? "producto agotado"
+            : "producto";
+
 
     let botones = "";
 
-    producto.opciones.forEach(opcion => {
 
-        botones += `
+    if (producto.agotado) {
 
-            <button
-                class="opcion-pizza"
-                onclick="agregarOpcionPizza(
-                    ${producto.id},
-                    '${producto.nombre.replace(/'/g, "\\'")}',
-                    '${opcion.nombre}',
-                    ${opcion.precio}
-                )"
-            >
+        tarjeta.innerHTML = `
 
-                <strong>
-                    ${opcion.nombre}
-                </strong>
+            <div class="producto-info">
 
-                <span>
-                    ${formatoPrecio(opcion.precio)}
-                </span>
+                <div class="producto-nombre">
+                    ${producto.nombre}
+                </div>
 
-            </button>
+                <div class="producto-agotado">
+                    🔴 AGOTADO
+                </div>
+
+            </div>
 
         `;
 
-    });
+    } else {
+
+        producto.opciones.forEach(opcion => {
+
+            botones += `
+
+                <button
+                    class="opcion-pizza"
+                    onclick="agregarOpcionPizza(
+                        ${producto.id},
+                        '${producto.nombre.replace(/'/g, "\\'")}',
+                        '${opcion.nombre}',
+                        ${opcion.precio}
+                    )"
+                >
+
+                    <strong>
+                        ${opcion.nombre}
+                    </strong>
+
+                    <span>
+                        ${formatoPrecio(opcion.precio)}
+                    </span>
+
+                </button>
+
+            `;
+
+        });
 
 
-    tarjeta.innerHTML = `
+        tarjeta.innerHTML = `
 
-        <div class="producto-info">
+            <div class="producto-info">
 
-            <div class="producto-nombre">
-                ${producto.nombre}
+                <div class="producto-nombre">
+                    ${producto.nombre}
+                </div>
+
+                <div class="opciones-pizza">
+                    ${botones}
+                </div>
+
             </div>
 
-            <div class="opciones-pizza">
-                ${botones}
-            </div>
+        `;
 
-        </div>
+    }
 
-    `;
 
     contenedor.appendChild(tarjeta);
 
@@ -679,6 +791,22 @@ function crearProductoConOpciones(producto) {
 // =========================
 
 function agregarAlCarrito(id, nombre, precio) {
+
+    const producto =
+        productos.find(
+            item => item.id === id
+        );
+
+
+    if (
+        producto &&
+        producto.agotado
+    ) {
+
+        return;
+
+    }
+
 
     const existente =
         carrito.find(
@@ -706,6 +834,7 @@ function agregarAlCarrito(id, nombre, precio) {
 
     }
 
+
     actualizarCarrito();
 
 }
@@ -721,6 +850,22 @@ function agregarOpcionPizza(
     opcion,
     precio
 ) {
+
+    const producto =
+        productos.find(
+            item => item.id === id
+        );
+
+
+    if (
+        producto &&
+        producto.agotado
+    ) {
+
+        return;
+
+    }
+
 
     const nombreCompleto =
         `${nombre} - ${opcion}`;
@@ -754,6 +899,7 @@ function agregarOpcionPizza(
 
     }
 
+
     actualizarCarrito();
 
 }
@@ -786,10 +932,6 @@ function mostrarEmpanadas() {
 
     contenedor.appendChild(tituloUnidad);
 
-
-    // CORREGIDO:
-    // Busca solamente productos de categoría empanadas.
-    // Ya no usa posiciones del array.
 
     const productosEmpanadas =
         productos.filter(
@@ -1033,6 +1175,26 @@ function cambiarCantidadGusto(
     gusto,
     cambio
 ) {
+
+    const productoEmpanada =
+        productos.find(
+            producto =>
+                producto.categoria === "empanadas" &&
+                producto.nombre
+                    .toLowerCase()
+                    .includes(gusto.toLowerCase())
+        );
+
+
+    if (
+        productoEmpanada &&
+        productoEmpanada.agotado
+    ) {
+
+        return;
+
+    }
+
 
     const actual =
         cantidadesEmpanadas[gusto] || 0;
