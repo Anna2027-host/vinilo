@@ -1,705 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Vinilo | Restó Bar</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
 </head>
-
 
 <body>
 
-
-    <!-- ==================================================
-         HEADER
-    =================================================== -->
-
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
     <header class="header">
 
         <div class="header-principal">
 
-            <button
-                class="logo-izquierda"
-                onclick="volverInicio()"
-                aria-label="Inicio"
-            >
-
-                <img
-                    src="img/logo.png"
-                    alt="Vinilo"
-                >
-
-            </button>
-
-
-            <div class="logo-texto">
-
-                <h1>VINILO</h1>
-
-                <span>
-                    RESTÓ • BAR • PUB
-                </span>
-
+            <div class="logo-contenedor">
+                <img src="logo.png" alt="Vinilo" class="logo-izquierda">
             </div>
 
-
-            <button
-                class="boton-buscar"
-                onclick="abrirBusqueda()"
-                aria-label="Buscar"
-            >
-                🔍
-            </button>
+            <div class="nombre-vinilo">
+                <h1>VINILO</h1>
+                <span>RESTÓ BAR • PUB</span>
+            </div>
 
         </div>
 
-
-        <div class="ubicacion-barra">
-
-            <span>📍</span>
-
-            <span>
-                AV. SANTA FE 272 • LA FRANCIA, CBA
-            </span>
-
-        </div>
-
-
-        <!-- BUSCADOR -->
-
-        <div
-            id="buscadorContenedor"
-            class="buscador-contenedor"
-        >
-
-            <input
-                type="text"
-                id="buscador"
-                placeholder="¿Qué querés comer?"
-                oninput="buscarProducto()"
-            >
-
+        <div class="ubicacion">
+            📍 AV. SANTA FE 272 • LA FRANCIA, CBA
         </div>
 
     </header>
 
 
-
-    <!-- ==================================================
+    <!-- =========================
          CONTENIDO PRINCIPAL
-    =================================================== -->
-
+    ========================== -->
     <main class="contenido">
 
+        <!-- CATEGORÍAS -->
+        <section class="categorias">
 
-        <!-- TÍTULO -->
+            <button class="categoria" onclick="mostrarCategoria('Pizzas')">
+                <span class="categoria-icono">🍕</span>
+                <span>Pizzas</span>
+            </button>
 
-        <section class="bienvenida">
+            <button class="categoria" onclick="mostrarCategoria('Empanadas')">
+                <span class="categoria-icono">🥟</span>
+                <span>Empanadas</span>
+            </button>
 
-            <h2 id="tituloCategoria">
-                Pizzas
-            </h2>
+            <button class="categoria" onclick="mostrarCategoria('Sandwiches')">
+                <span class="categoria-icono">🥪</span>
+                <span>Sanguches</span>
+            </button>
 
-            <p id="subtituloCategoria">
-                Elegí tus favoritos
-            </p>
+            <button class="categoria" onclick="mostrarCategoria('Papas')">
+                <span class="categoria-icono">🍟</span>
+                <span>Papas</span>
+            </button>
+
+            <button class="categoria" onclick="mostrarCategoria('Bebidas')">
+                <span class="categoria-icono">🥤</span>
+                <span>Bebidas</span>
+            </button>
+
+            <button class="categoria" onclick="mostrarCategoria('Postres')">
+                <span class="categoria-icono">🍰</span>
+                <span>Postres</span>
+            </button>
 
         </section>
 
 
-
-        <!-- ==================================================
-             CATEGORÍAS
-        =================================================== -->
-
-        <nav
-            class="categorias"
-            id="categorias"
-        >
-
-            <button
-                class="categoria activa"
-                data-categoria="pizzas"
-                onclick="mostrarCategoria('pizzas')"
-            >
-
-                <span class="categoria-icono">
-                    🍕
-                </span>
-
-                <span>
-                    Pizza
-                </span>
-
-            </button>
-
-
-            <button
-                class="categoria"
-                data-categoria="empanadas"
-                onclick="mostrarCategoria('empanadas')"
-            >
-
-                <span class="categoria-icono">
-                    🥟
-                </span>
-
-                <span>
-                    Empanadas
-                </span>
-
-            </button>
-
-
-            <button
-                class="categoria"
-                data-categoria="sandwiches"
-                onclick="mostrarCategoria('sandwiches')"
-            >
-
-                <span class="categoria-icono">
-                    🥪
-                </span>
-
-                <span>
-                    Sanguches
-                </span>
-
-            </button>
-
-
-            <button
-                class="categoria"
-                data-categoria="papas"
-                onclick="mostrarCategoria('papas')"
-            >
-
-                <span class="categoria-icono">
-                    🍟
-                </span>
-
-                <span>
-                    Papas Fritas
-                </span>
-
-            </button>
-
-
-            <button
-                class="categoria"
-                data-categoria="bebidas"
-                onclick="mostrarCategoria('bebidas')"
-            >
-
-                <span class="categoria-icono">
-                    🥤
-                </span>
-
-                <span>
-                    Bebidas
-                </span>
-
-            </button>
-
-
-            <button
-                class="categoria"
-                data-categoria="postres"
-                onclick="mostrarCategoria('postres')"
-            >
-
-                <span class="categoria-icono">
-                    🍰
-                </span>
-
-                <span>
-                    Postre
-                </span>
-
-            </button>
-
-        </nav>
-
-
-
-        <!-- ==================================================
+        <!-- =========================
              PRODUCTOS
-        =================================================== -->
+        ========================== -->
+        <section id="productos" class="productos">
 
-        <section
-            id="productos"
-            class="productos"
-        >
-
-            <!-- Los productos aparecen desde JavaScript -->
+            <div class="mensaje-inicial">
+                <h2>Elegí una categoría</h2>
+                <p>Tocá una opción para ver el menú.</p>
+            </div>
 
         </section>
-
 
     </main>
 
 
-
-    <!-- ==================================================
+    <!-- =========================
          MODAL CARRITO
-    =================================================== -->
+    ========================== -->
+    <div id="modalCarrito" class="modal">
 
-    <div
-        id="modalCarrito"
-        class="modal"
-    >
+        <div class="modal-contenido">
 
-        <div class="modal-contenido carrito-modal">
+            <button class="cerrar-modal" onclick="cerrarCarrito()">✕</button>
 
+            <h2>Mi pedido 🛒</h2>
 
-            <button
-                class="cerrar"
-                onclick="cerrarCarrito()"
-                aria-label="Cerrar"
-            >
-                ×
-            </button>
-
-
-            <h2>
-                Tu pedido 🛒
-            </h2>
-
-
-            <div
-                id="carritoVacio"
-                class="carrito-vacio"
-            >
-
-                <p>
+            <!-- PRODUCTOS DEL CARRITO -->
+            <div id="listaCarrito" class="lista-carrito">
+                <p class="carrito-vacio">
                     Tu carrito está vacío.
                 </p>
+            </div>
 
-                <button
-                    onclick="cerrarCarrito()"
-                >
-                    VER LA CARTA
-                </button>
-
+            <div class="total-carrito">
+                <span>Total</span>
+                <strong id="totalCarrito">$0</strong>
             </div>
 
 
-            <div
-                id="listaCarrito"
-                class="lista-carrito"
-            >
-            </div>
-
-
-            <div class="carrito-total">
-
-                <span>
-                    Total
-                </span>
-
-                <strong id="totalCarrito">
-                    $0
-                </strong>
-
-            </div>
-
-
-
-            <!-- DATOS DEL PEDIDO -->
-
-            <div class="datos-pedido">
-
-                <h3>
-                    Datos del pedido
-                </h3>
-
+            <!-- DATOS DEL CLIENTE -->
+            <div class="formulario-pedido">
 
                 <label for="nombreCliente">
-                    Nombre
+                    Nombre <span>*</span>
                 </label>
 
                 <input
                     type="text"
                     id="nombreCliente"
-                    placeholder="Tu nombre"
+                    placeholder="Escribí tu nombre"
+                    required
                 >
 
 
                 <label for="tipoPedido">
-                    Tipo de pedido
+                    ¿Cómo querés recibirlo? <span>*</span>
                 </label>
 
-                <select id="tipoPedido">
-
-                    <option value="Retiro">
-                        Retiro por Vinilo
-                    </option>
-
-                    <option value="Delivery">
-                        Delivery
-                    </option>
-
+                <select
+                    id="tipoPedido"
+                    required
+                    onchange="actualizarDireccion()"
+                >
+                    <option value="">Seleccioná una opción</option>
+                    <option value="Retiro">Retiro por Vinilo</option>
+                    <option value="Delivery">Delivery</option>
                 </select>
 
 
-                <label for="direccionCliente">
-                    Dirección
-                </label>
-
-                <input
-                    type="text"
-                    id="direccionCliente"
-                    placeholder="Dirección"
+                <!-- DIRECCIÓN -->
+                <div
+                    id="contenedorDireccion"
+                    style="display: none;"
                 >
 
+                    <label for="direccionCliente">
+                        Dirección <span>*</span>
+                    </label>
 
+                    <input
+                        type="text"
+                        id="direccionCliente"
+                        placeholder="Escribí tu dirección"
+                    >
+
+                </div>
+
+
+                <!-- FORMA DE PAGO -->
                 <label for="formaPago">
-                    Forma de pago
+                    Forma de pago <span>*</span>
                 </label>
 
-                <select id="formaPago">
-
-                    <option value="Efectivo">
-                        Efectivo
-                    </option>
-
-                    <option value="Transferencia">
-                        Transferencia
-                    </option>
-
+                <select
+                    id="formaPago"
+                    required
+                >
+                    <option value="">Seleccioná una opción</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia">Transferencia</option>
                 </select>
 
 
+                <!-- OBSERVACIONES -->
                 <label for="observaciones">
                     Observaciones
+                    <small>(opcional)</small>
                 </label>
 
                 <textarea
                     id="observaciones"
-                    placeholder="Ej: sin cebolla, tocar timbre..."
+                    placeholder="¿Querés agregar algo?"
                 ></textarea>
 
-            </div>
 
-
-
-            <div class="total-final">
-
-                <span>
-                    TOTAL
-                </span>
-
-                <strong id="totalFinal">
-                    $0
-                </strong>
+                <!-- ENVIAR -->
+                <button
+                    class="boton-whatsapp"
+                    onclick="enviarWhatsApp()"
+                >
+                    📲 ENVIAR PEDIDO POR WHATSAPP
+                </button>
 
             </div>
-
-
-            <button
-                class="boton-whatsapp"
-                onclick="enviarWhatsApp()"
-            >
-
-                💬 ENVIAR PEDIDO POR WHATSAPP
-
-            </button>
-
 
         </div>
 
     </div>
 
 
-
-    <!-- ==================================================
+    <!-- =========================
          MODAL EMPANADAS
-    =================================================== -->
+    ========================== -->
+    <div id="modalEmpanadas" class="modal">
 
-    <div
-        id="modalEmpanadas"
-        class="modal"
-    >
-
-        <div class="modal-contenido empanadas-modal">
-
+        <div class="modal-contenido modal-empanadas">
 
             <button
-                class="cerrar"
-                onclick="cerrarEmpanadas()"
-                aria-label="Cerrar"
+                class="cerrar-modal"
+                onclick="cerrarModalEmpanadas()"
             >
-                ×
+                ✕
             </button>
 
+            <h2>Empanadas 🥟</h2>
 
-            <h2 id="tituloEmpanadas">
-                Elegí los gustos
-            </h2>
-
-
-            <p class="texto-selector">
-
-                Elegí exactamente
-                <strong id="cantidadNecesaria">
-                    6
-                </strong>
-                empanadas.
-
+            <p class="texto-modal">
+                Elegí la cantidad
             </p>
 
+            <div class="packs-empanadas">
 
-            <div class="contador-empanadas">
+                <button
+                    class="pack-empanadas"
+                    onclick="seleccionarPackEmpanadas(6)"
+                >
+                    <strong>6 empanadas</strong>
+                    <span>$13.000</span>
+                </button>
 
-                Seleccionadas:
-
-                <strong id="cantidadSeleccionada">
-                    0
-                </strong>
+                <button
+                    class="pack-empanadas"
+                    onclick="seleccionarPackEmpanadas(12)"
+                >
+                    <strong>12 empanadas</strong>
+                    <span>$25.000</span>
+                </button>
 
             </div>
 
-
-            <div
-                id="listaGustosEmpanadas"
-                class="lista-gustos-empanadas"
-            >
-            </div>
-
-
-            <button
-                id="botonConfirmarEmpanadas"
-                class="boton-confirmar"
-                onclick="confirmarEmpanadas()"
-                disabled
-            >
-
-                AGREGAR AL CARRITO
-
-            </button>
+            <div id="seleccionEmpanadas"></div>
 
         </div>
 
     </div>
 
 
-
-    <!-- ==================================================
+    <!-- =========================
          MODAL PERFIL
-    =================================================== -->
+    ========================== -->
+    <div id="modalPerfil" class="modal">
 
-    <div
-        id="modalPerfil"
-        class="modal"
-    >
-
-        <div class="modal-contenido perfil">
-
+        <div class="modal-contenido">
 
             <button
-                class="cerrar"
+                class="cerrar-modal"
                 onclick="cerrarPerfil()"
-                aria-label="Cerrar"
             >
-                ×
+                ✕
             </button>
 
+            <h2>Mi perfil 👤</h2>
 
-            <h2>
-                Mi perfil 👤
-            </h2>
-
-
-            <p>
-                Guardá tus datos para que tus próximos pedidos sean más rápidos.
+            <p class="texto-modal">
+                Guardá tus datos para hacer tus pedidos más rápido.
             </p>
 
+            <div class="formulario-pedido">
 
-            <label for="perfilNombre">
-                Nombre
-            </label>
+                <label for="perfilNombre">
+                    Nombre
+                </label>
 
-            <input
-                type="text"
-                id="perfilNombre"
-                placeholder="Tu nombre"
-            >
-
-
-            <label for="perfilApellido">
-                Apellido
-            </label>
-
-            <input
-                type="text"
-                id="perfilApellido"
-                placeholder="Tu apellido"
-            >
+                <input
+                    type="text"
+                    id="perfilNombre"
+                    placeholder="Tu nombre"
+                >
 
 
-            <label for="perfilTelefono">
-                Teléfono
-            </label>
+                <label for="perfilApellido">
+                    Apellido
+                </label>
 
-            <input
-                type="tel"
-                id="perfilTelefono"
-                placeholder="Tu teléfono"
-            >
+                <input
+                    type="text"
+                    id="perfilApellido"
+                    placeholder="Tu apellido"
+                >
 
 
-            <button
-                class="boton-guardar-perfil"
-                onclick="guardarPerfil()"
-            >
+                <label for="perfilTelefono">
+                    Teléfono
+                </label>
 
-                GUARDAR MIS DATOS
+                <input
+                    type="tel"
+                    id="perfilTelefono"
+                    placeholder="Tu teléfono"
+                >
 
-            </button>
+
+                <button
+                    class="boton-guardar"
+                    onclick="guardarPerfil()"
+                >
+                    GUARDAR DATOS
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
 
+    <!-- =========================
+         MODAL RECOMPENSAS
+    ========================== -->
+    <div id="modalRecompensas" class="modal">
 
-    <!-- ==================================================
-         MODAL REWARDS
-    =================================================== -->
-
-    <div
-        id="modalRewards"
-        class="modal"
-    >
-
-        <div class="modal-contenido rewards">
-
+        <div class="modal-contenido modal-recompensas">
 
             <button
-                class="cerrar"
-                onclick="cerrarRewards()"
-                aria-label="Cerrar"
+                class="cerrar-modal"
+                onclick="cerrarRecompensas()"
             >
-                ×
+                ✕
             </button>
 
+            <div class="recompensas-icono">
+                ⭐
+            </div>
 
-            <h2>
-                Rewards ⭐
-            </h2>
-
+            <h2>Mis puntos</h2>
 
             <p>
-                Próximamente vas a poder acumular puntos con tus pedidos en Vinilo.
+                Próximamente vas a poder acumular puntos
+                y canjearlos por beneficios exclusivos.
             </p>
+
+            <div class="puntos-proximamente">
+                PRÓXIMAMENTE
+            </div>
 
         </div>
 
     </div>
 
 
-
-    <!-- ==================================================
-         BARRA INFERIOR
-    =================================================== -->
-
-    <nav class="barra-inferior">
-
+    <!-- =========================
+         NAVEGACIÓN INFERIOR
+    ========================== -->
+    <nav class="bottom-nav">
 
         <button
-            class="nav-item activo"
-            onclick="irHome()"
+            class="nav-item"
+            onclick="irInicio()"
         >
-
-            <span class="nav-icon">
-                ⌂
-            </span>
-
-            <span>
-                Home
-            </span>
-
+            <span>⌂</span>
+            <small>Inicio</small>
         </button>
 
 
         <button
-            class="nav-item"
-            onclick="irMenu()"
-        >
-
-            <span class="nav-icon">
-                ☰
-            </span>
-
-            <span>
-                Menu
-            </span>
-
-        </button>
-
-
-        <button
-            class="nav-item"
+            class="nav-item nav-carrito"
             onclick="abrirCarrito()"
         >
+            <span>🛒</span>
 
-            <span class="nav-icon">
-                🛒
-            </span>
+            <small>Carrito</small>
 
-            <span>
-                Cart
-            </span>
-
-            <span
-                id="cantidadCarrito"
-                class="badge-carrito"
+            <b
+                id="contadorCarrito"
+                class="contador-carrito"
             >
                 0
-            </span>
-
+            </b>
         </button>
 
 
         <button
             class="nav-item"
-            onclick="abrirRewards()"
+            onclick="abrirRecompensas()"
         >
-
-            <span class="nav-icon">
-                ⭐
-            </span>
-
-            <span>
-                Rewards
-            </span>
-
+            <span>⭐</span>
+            <small>Premios</small>
         </button>
 
 
@@ -707,29 +401,57 @@
             class="nav-item"
             onclick="abrirPerfil()"
         >
-
-            <span class="nav-icon">
-                👤
-            </span>
-
-            <span>
-                Profile
-            </span>
-
+            <span>👤</span>
+            <small>Perfil</small>
         </button>
-
 
     </nav>
 
 
-
-    <!-- ==================================================
-         JAVASCRIPT
-    =================================================== -->
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
 
     <script src="script.js"></script>
 
 
-</body>
+    <script>
 
+        // Mostrar u ocultar dirección según el tipo de pedido
+        function actualizarDireccion() {
+
+            const tipo = document.getElementById("tipoPedido");
+            const contenedor = document.getElementById("contenedorDireccion");
+            const direccion = document.getElementById("direccionCliente");
+
+            if (!tipo || !contenedor || !direccion) {
+                return;
+            }
+
+            if (tipo.value === "Delivery") {
+
+                contenedor.style.display = "block";
+                direccion.required = true;
+
+            } else {
+
+                contenedor.style.display = "none";
+                direccion.required = false;
+                direccion.value = "";
+
+            }
+
+        }
+
+
+        // Al cargar la página
+        document.addEventListener("DOMContentLoaded", function() {
+
+            actualizarDireccion();
+
+        });
+
+    </script>
+
+</body>
 </html>
