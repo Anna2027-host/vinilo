@@ -1,18 +1,17 @@
-/* =========================================================
-   VINILO RESTÓ BAR
-   SCRIPT COMPLETO
-========================================================= */
+// ======================================================
+// VINILO - SCRIPT PRINCIPAL
+// ======================================================
 
 
-/* =========================================================
-   PRODUCTOS
-========================================================= */
+// ======================================================
+// PRODUCTOS
+// ======================================================
 
 const productos = [
 
-    /* =======================
-       PIZZAS
-    ======================= */
+    // -------------------------
+    // PIZZAS
+    // -------------------------
 
     {
         id: 1,
@@ -125,9 +124,9 @@ const productos = [
     },
 
 
-    /* =======================
-       EMPANADAS
-    ======================= */
+    // -------------------------
+    // EMPANADAS
+    // -------------------------
 
     {
         id: 20,
@@ -172,9 +171,9 @@ const productos = [
     },
 
 
-    /* =======================
-       SANGUCHES
-    ======================= */
+    // -------------------------
+    // SANGUCHES
+    // -------------------------
 
     {
         id: 31,
@@ -226,28 +225,28 @@ const productos = [
     },
 
 
-    /* =======================
-       PAPAS
-    ======================= */
+    // -------------------------
+    // PAPAS
+    // -------------------------
 
     {
         id: 40,
-        nombre: "Papas fritas",
+        nombre: "Porción de papas fritas",
         categoria: "Papas",
         precio: 10000
     },
 
     {
         id: 41,
-        nombre: "Papas con cheddar, verdeo y huevo",
+        nombre: "Papas con cheddar / verdeo / huevo",
         categoria: "Papas",
         precio: 11000
     },
 
 
-    /* =======================
-       POSTRES
-    ======================= */
+    // -------------------------
+    // POSTRES
+    // -------------------------
 
     {
         id: 50,
@@ -257,9 +256,9 @@ const productos = [
     },
 
 
-    /* =======================
-       BEBIDAS
-    ======================= */
+    // -------------------------
+    // BEBIDAS
+    // -------------------------
 
     {
         id: 60,
@@ -439,33 +438,21 @@ const productos = [
 ];
 
 
-/* =========================================================
-   VARIABLES
-========================================================= */
+// ======================================================
+// VARIABLES
+// ======================================================
 
 let carrito = [];
 
-let categoriaActual = "";
+let cantidadEmpanadasSeleccionadas = 0;
+let tipoPackEmpanadas = "";
 
 
-/* =========================================================
-   FORMATO DE PRECIOS
-========================================================= */
-
-function formatoPrecio(precio) {
-
-    return "$" + precio.toLocaleString("es-AR");
-
-}
-
-
-/* =========================================================
-   MOSTRAR CATEGORÍA
-========================================================= */
+// ======================================================
+// MOSTRAR CATEGORÍA
+// ======================================================
 
 function mostrarCategoria(categoria) {
-
-    categoriaActual = categoria;
 
     const contenedor = document.getElementById("productos");
 
@@ -473,33 +460,30 @@ function mostrarCategoria(categoria) {
 
     contenedor.innerHTML = "";
 
+    const productosFiltrados = productos.filter(
+        producto => producto.categoria === categoria
+    );
+
     const titulo = document.createElement("h2");
 
     titulo.className = "titulo-categoria";
-
     titulo.textContent = categoria;
 
     contenedor.appendChild(titulo);
 
 
-    const productosCategoria = productos.filter(
-        producto => producto.categoria === categoria
-    );
+    // EMPANADAS
+    if (categoria === "Empanadas") {
 
-
-    if (productosCategoria.length === 0) {
-
-        contenedor.innerHTML += `
-            <p class="sin-productos">
-                No hay productos disponibles.
-            </p>
-        `;
+        mostrarOpcionesEmpanadas(contenedor);
 
         return;
     }
 
 
-    productosCategoria.forEach(producto => {
+    // PRODUCTOS NORMALES
+
+    productosFiltrados.forEach(producto => {
 
         if (producto.opciones) {
 
@@ -516,53 +500,111 @@ function mostrarCategoria(categoria) {
 }
 
 
-/* =========================================================
-   PRODUCTO SIMPLE
-========================================================= */
+// ======================================================
+// EMPANADAS - MEDIA DOCENA / DOCENA
+// ======================================================
 
-function crearProductoSimple(producto) {
+function mostrarOpcionesEmpanadas(contenedor) {
 
-    return `
-        <article class="producto-card">
+    contenedor.innerHTML += `
+
+        <div class="producto-card empanadas-pack-card">
 
             <div class="producto-info">
 
-                <h3>${producto.nombre}</h3>
+                <h3 class="producto-nombre">
+                    Media docena
+                </h3>
 
-                <strong class="precio-producto">
-                    ${formatoPrecio(producto.precio)}
-                </strong>
+                <span class="precio-producto">
+                    $13.000
+                </span>
 
             </div>
 
             <button
                 class="agregar"
-                onclick="agregarProducto(
-                    ${producto.id}
-                )"
+                onclick="abrirSeleccionEmpanadas(6)"
+            >
+                AGREGAR
+            </button>
+
+        </div>
+
+
+        <div class="producto-card empanadas-pack-card">
+
+            <div class="producto-info">
+
+                <h3 class="producto-nombre">
+                    Docena
+                </h3>
+
+                <span class="precio-producto">
+                    $25.000
+                </span>
+
+            </div>
+
+            <button
+                class="agregar"
+                onclick="abrirSeleccionEmpanadas(12)"
+            >
+                AGREGAR
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+// ======================================================
+// CREAR PRODUCTO SIMPLE
+// ======================================================
+
+function crearProductoSimple(producto) {
+
+    return `
+
+        <article class="producto-card">
+
+            <div class="producto-info">
+
+                <h3 class="producto-nombre">
+                    ${producto.nombre}
+                </h3>
+
+                <span class="precio-producto">
+                    $${producto.precio.toLocaleString("es-AR")}
+                </span>
+
+            </div>
+
+            <button
+                class="agregar"
+                onclick="agregarProducto(${producto.id})"
             >
                 AGREGAR
             </button>
 
         </article>
-    `;
 
+    `;
 }
 
 
-/* =========================================================
-   PRODUCTO CON OPCIONES
-   EJ: PIZZA MEDIA / ENTERA
-========================================================= */
+// ======================================================
+// CREAR PIZZA CON OPCIONES
+// ======================================================
 
 function crearProductoConOpciones(producto) {
 
-    let botones = "";
+    let opcionesHTML = "";
 
+    producto.opciones.forEach((opcion, indice) => {
 
-    producto.opciones.forEach(opcion => {
-
-        botones += `
+        opcionesHTML += `
 
             <div class="opcion-pizza">
 
@@ -573,19 +615,16 @@ function crearProductoConOpciones(producto) {
                     </strong>
 
                     <span>
-                        ${formatoPrecio(opcion.precio)}
+                        $${opcion.precio.toLocaleString("es-AR")}
                     </span>
 
                 </div>
-
 
                 <button
                     class="boton-agregar-opcion"
                     onclick="agregarOpcionPizza(
                         ${producto.id},
-                        '${producto.nombre.replace(/'/g, "\\'")}',
-                        '${opcion.nombre.replace(/'/g, "\\'")}',
-                        ${opcion.precio}
+                        ${indice}
                     )"
                 >
                     AGREGAR
@@ -600,31 +639,31 @@ function crearProductoConOpciones(producto) {
 
     return `
 
-        <article class="producto-card producto-con-opciones">
+        <article class="producto-card">
 
             <div class="producto-info">
 
-                <h3>${producto.nombre}</h3>
+                <h3 class="producto-nombre">
+                    ${producto.nombre}
+                </h3>
 
             </div>
 
-
             <div class="opciones-pizza">
 
-                ${botones}
+                ${opcionesHTML}
 
             </div>
 
         </article>
 
     `;
-
 }
 
 
-/* =========================================================
-   AGREGAR PRODUCTO SIMPLE
-========================================================= */
+// ======================================================
+// AGREGAR PRODUCTO SIMPLE
+// ======================================================
 
 function agregarProducto(id) {
 
@@ -634,78 +673,66 @@ function agregarProducto(id) {
 
     if (!producto) return;
 
-
-    const existente = carrito.find(
-        item => item.id === id
-    );
-
-
-    if (existente) {
-
-        existente.cantidad++;
-
-    } else {
-
-        carrito.push({
-
-            id: producto.id,
-
-            nombre: producto.nombre,
-
-            precio: producto.precio,
-
-            cantidad: 1
-
-        });
-
-    }
-
-
-    actualizarCarrito();
-
-    mostrarConfirmacion(
-        producto.nombre
+    agregarAlCarrito(
+        producto.nombre,
+        producto.precio,
+        1
     );
 
 }
 
 
-/* =========================================================
-   AGREGAR PIZZA CON OPCIÓN
-========================================================= */
+// ======================================================
+// AGREGAR OPCIÓN DE PIZZA
+// ======================================================
 
-function agregarOpcionPizza(
-    id,
-    nombre,
-    opcion,
-    precio
-) {
+function agregarOpcionPizza(idProducto, indiceOpcion) {
 
-    const clave = id + "-" + opcion;
+    const producto = productos.find(
+        producto => producto.id === idProducto
+    );
 
+    if (!producto || !producto.opciones[indiceOpcion]) {
+        return;
+    }
+
+    const opcion = producto.opciones[indiceOpcion];
+
+    const nombreCompleto =
+        `${producto.nombre} - ${opcion.nombre}`;
+
+
+    agregarAlCarrito(
+        nombreCompleto,
+        opcion.precio,
+        1
+    );
+
+}
+
+
+// ======================================================
+// AGREGAR AL CARRITO
+// ======================================================
+
+function agregarAlCarrito(nombre, precio, cantidad = 1) {
 
     const existente = carrito.find(
-        item => item.clave === clave
+        item => item.nombre === nombre
     );
 
 
     if (existente) {
 
-        existente.cantidad++;
+        existente.cantidad += cantidad;
 
     } else {
 
         carrito.push({
 
-            id: id,
-
-            clave: clave,
-
-            nombre: nombre + " - " + opcion,
-
+            nombre: nombre,
             precio: precio,
-
-            cantidad: 1
+            cantidad: cantidad
 
         });
 
@@ -714,54 +741,378 @@ function agregarOpcionPizza(
 
     actualizarCarrito();
 
-    mostrarConfirmacion(
-        nombre + " " + opcion
-    );
+    mostrarAvisoAgregado(nombre);
 
 }
 
 
-/* =========================================================
-   CONFIRMACIÓN VISUAL
-========================================================= */
+// ======================================================
+// AVISO PRODUCTO AGREGADO
+// ======================================================
 
-function mostrarConfirmacion(nombre) {
+function mostrarAvisoAgregado(nombre) {
 
-    let aviso = document.getElementById("avisoAgregado");
+    let aviso = document.querySelector(".aviso-agregado");
 
-
-    if (!aviso) {
-
-        aviso = document.createElement("div");
-
-        aviso.id = "avisoAgregado";
-
-        aviso.className = "aviso-agregado";
-
-        document.body.appendChild(aviso);
-
+    if (aviso) {
+        aviso.remove();
     }
 
+
+    aviso = document.createElement("div");
+
+    aviso.className = "aviso-agregado";
 
     aviso.textContent =
-        "✓ " + nombre + " agregado al carrito";
+        `${nombre} agregado al pedido ✓`;
 
 
-    aviso.classList.add("mostrar");
+    document.body.appendChild(aviso);
+
+
+    setTimeout(() => {
+
+        aviso.classList.add("mostrar");
+
+    }, 10);
 
 
     setTimeout(() => {
 
         aviso.classList.remove("mostrar");
 
+        setTimeout(() => {
+
+            aviso.remove();
+
+        }, 300);
+
     }, 1800);
 
 }
 
 
-/* =========================================================
-   ACTUALIZAR CARRITO
-========================================================= */
+// ======================================================
+// EMPANADAS - ABRIR SELECCIÓN
+// ======================================================
+
+function abrirSeleccionEmpanadas(cantidad) {
+
+    cantidadEmpanadasSeleccionadas = cantidad;
+
+    tipoPackEmpanadas =
+        cantidad === 6
+            ? "Media docena"
+            : "Docena";
+
+
+    const modal =
+        document.getElementById("modalEmpanadas");
+
+    const titulo =
+        document.getElementById("tituloEmpanadas");
+
+    const texto =
+        document.getElementById("textoEmpanadas");
+
+    const contenedor =
+        document.getElementById("seleccionEmpanadas");
+
+
+    if (!modal || !titulo || !texto || !contenedor) {
+        return;
+    }
+
+
+    titulo.textContent =
+        `${tipoPackEmpanadas} de empanadas 🥟`;
+
+
+    texto.textContent =
+        `Elegí ${cantidad} gustos. Podés combinar los sabores como quieras.`;
+
+
+    const empanadas = productos.filter(
+        producto => producto.categoria === "Empanadas"
+    );
+
+
+    let html = `
+
+        <div class="selector-empanadas">
+
+            <p class="contador-empanadas">
+                Seleccionadas:
+                <strong>
+                    <span id="cantidadElegidaEmpanadas">0</span>
+                    / ${cantidad}
+                </strong>
+            </p>
+
+    `;
+
+
+    empanadas.forEach(empanada => {
+
+        html += `
+
+            <div class="fila-empanada">
+
+                <span>
+                    ${empanada.nombre}
+                </span>
+
+                <div class="controles-empanada">
+
+                    <button
+                        type="button"
+                        onclick="cambiarCantidadEmpanada(
+                            ${empanada.id},
+                            -1
+                        )"
+                    >
+                        −
+                    </button>
+
+                    <strong
+                        id="cantidadEmpanada-${empanada.id}"
+                    >
+                        0
+                    </strong>
+
+                    <button
+                        type="button"
+                        onclick="cambiarCantidadEmpanada(
+                            ${empanada.id},
+                            1
+                        )"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+            <button
+                type="button"
+                class="boton-confirmar-empanadas"
+                onclick="confirmarEmpanadas()"
+            >
+                AGREGAR AL PEDIDO
+            </button>
+
+        </div>
+
+    `;
+
+
+    contenedor.innerHTML = html;
+
+
+    modal.classList.add("activo");
+
+}
+
+
+// ======================================================
+// CAMBIAR CANTIDAD DE EMPANADA
+// ======================================================
+
+function cambiarCantidadEmpanada(id, cambio) {
+
+    const elemento =
+        document.getElementById(
+            `cantidadEmpanada-${id}`
+        );
+
+
+    if (!elemento) return;
+
+
+    let cantidadActual =
+        parseInt(elemento.textContent) || 0;
+
+
+    const nuevaCantidad =
+        cantidadActual + cambio;
+
+
+    // No permitir cantidades negativas
+    if (nuevaCantidad < 0) {
+        return;
+    }
+
+
+    // No permitir superar la cantidad del pack
+    if (nuevaCantidad > cantidadEmpanadasSeleccionadas) {
+        return;
+    }
+
+
+    elemento.textContent = nuevaCantidad;
+
+
+    actualizarContadorEmpanadas();
+
+}
+
+
+// ======================================================
+// ACTUALIZAR CONTADOR DE EMPANADAS
+// ======================================================
+
+function actualizarContadorEmpanadas() {
+
+    let total = 0;
+
+
+    const empanadas = productos.filter(
+        producto => producto.categoria === "Empanadas"
+    );
+
+
+    empanadas.forEach(empanada => {
+
+        const elemento =
+            document.getElementById(
+                `cantidadEmpanada-${empanada.id}`
+            );
+
+
+        if (elemento) {
+
+            total +=
+                parseInt(elemento.textContent) || 0;
+
+        }
+
+    });
+
+
+    const contador =
+        document.getElementById(
+            "cantidadElegidaEmpanadas"
+        );
+
+
+    if (contador) {
+        contador.textContent = total;
+    }
+
+}
+
+
+// ======================================================
+// CONFIRMAR EMPANADAS
+// ======================================================
+
+function confirmarEmpanadas() {
+
+    const empanadas = productos.filter(
+        producto => producto.categoria === "Empanadas"
+    );
+
+
+    let totalSeleccionado = 0;
+
+    let detalles = [];
+
+
+    empanadas.forEach(empanada => {
+
+        const elemento =
+            document.getElementById(
+                `cantidadEmpanada-${empanada.id}`
+            );
+
+
+        if (!elemento) return;
+
+
+        const cantidad =
+            parseInt(elemento.textContent) || 0;
+
+
+        if (cantidad > 0) {
+
+            totalSeleccionado += cantidad;
+
+
+            detalles.push(
+                `${cantidad} ${empanada.nombre}`
+            );
+
+        }
+
+    });
+
+
+    // Verificar que haya elegido exactamente el pack
+    if (
+        totalSeleccionado !==
+        cantidadEmpanadasSeleccionadas
+    ) {
+
+        alert(
+            `Tenés que elegir exactamente ${cantidadEmpanadasSeleccionadas} empanadas.`
+        );
+
+        return;
+    }
+
+
+    const precio =
+        cantidadEmpanadasSeleccionadas === 6
+            ? 13000
+            : 25000;
+
+
+    const nombreCarrito =
+        `${tipoPackEmpanadas}: ${detalles.join(", ")}`;
+
+
+    agregarAlCarrito(
+        nombreCarrito,
+        precio,
+        1
+    );
+
+
+    cerrarModalEmpanadas();
+
+}
+
+
+// ======================================================
+// CERRAR MODAL EMPANADAS
+// ======================================================
+
+function cerrarModalEmpanadas() {
+
+    const modal =
+        document.getElementById("modalEmpanadas");
+
+
+    if (modal) {
+
+        modal.classList.remove("activo");
+
+    }
+
+}
+
+
+// ======================================================
+// ACTUALIZAR CARRITO
+// ======================================================
 
 function actualizarCarrito() {
 
@@ -775,102 +1126,101 @@ function actualizarCarrito() {
         document.getElementById("contadorCarrito");
 
 
+    if (!lista) return;
+
+
+    lista.innerHTML = "";
+
+
     let total = 0;
 
     let cantidadTotal = 0;
 
 
-    if (lista) {
-
-        lista.innerHTML = "";
-
-    }
-
-
     if (carrito.length === 0) {
 
-        if (lista) {
-
-            lista.innerHTML = `
-                <p class="carrito-vacio">
-                    Tu carrito está vacío.
-                </p>
-            `;
-
-        }
+        lista.innerHTML = `
+            <p class="carrito-vacio">
+                Tu pedido está vacío.
+            </p>
+        `;
 
     } else {
 
         carrito.forEach((item, indice) => {
 
-            total +=
-                item.precio *
-                item.cantidad;
-
-            cantidadTotal +=
-                item.cantidad;
+            const subtotal =
+                item.precio * item.cantidad;
 
 
-            if (lista) {
+            total += subtotal;
 
-                lista.innerHTML += `
-
-                    <div class="item-carrito">
-
-                        <div class="item-carrito-info">
-
-                            <strong>
-                                ${item.nombre}
-                            </strong>
-
-                            <span>
-                                ${formatoPrecio(item.precio)}
-                            </span>
-
-                        </div>
+            cantidadTotal += item.cantidad;
 
 
-                        <div class="cantidad-carrito">
+            lista.innerHTML += `
 
-                            <button
-                                onclick="cambiarCantidad(${indice}, -1)"
-                            >
-                                −
-                            </button>
+                <div class="item-carrito">
 
-                            <span>
-                                ${item.cantidad}
-                            </span>
+                    <div class="item-carrito-info">
 
-                            <button
-                                onclick="cambiarCantidad(${indice}, 1)"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <strong class="subtotal-carrito">
-                            ${formatoPrecio(
-                                item.precio *
-                                item.cantidad
-                            )}
+                        <strong>
+                            ${item.nombre}
                         </strong>
+
+                        <span>
+                            $${item.precio.toLocaleString("es-AR")}
+                        </span>
+
+                    </div>
+
+
+                    <div class="controles-carrito">
+
+                        <button
+                            onclick="cambiarCantidadCarrito(
+                                ${indice},
+                                -1
+                            )"
+                        >
+                            −
+                        </button>
+
+
+                        <span class="cantidad-carrito">
+                            ${item.cantidad}
+                        </span>
+
+
+                        <button
+                            onclick="cambiarCantidadCarrito(
+                                ${indice},
+                                1
+                            )"
+                        >
+                            +
+                        </button>
 
 
                         <button
                             class="eliminar-item"
-                            onclick="eliminarProducto(${indice})"
+                            onclick="eliminarDelCarrito(
+                                ${indice}
+                            )"
                         >
                             🗑
                         </button>
 
                     </div>
 
-                `;
 
-            }
+                    <div class="subtotal-carrito">
+                        $${subtotal.toLocaleString("es-AR")}
+                    </div>
+
+                </div>
+
+            `;
 
         });
 
@@ -880,7 +1230,7 @@ function actualizarCarrito() {
     if (totalElemento) {
 
         totalElemento.textContent =
-            formatoPrecio(total);
+            `Total: $${total.toLocaleString("es-AR")}`;
 
     }
 
@@ -890,26 +1240,16 @@ function actualizarCarrito() {
         contador.textContent =
             cantidadTotal;
 
-        if (cantidadTotal > 0) {
-
-            contador.classList.add("activo");
-
-        } else {
-
-            contador.classList.remove("activo");
-
-        }
-
     }
 
 }
 
 
-/* =========================================================
-   CAMBIAR CANTIDAD
-========================================================= */
+// ======================================================
+// CAMBIAR CANTIDAD DEL CARRITO
+// ======================================================
 
-function cambiarCantidad(indice, cambio) {
+function cambiarCantidadCarrito(indice, cambio) {
 
     if (!carrito[indice]) return;
 
@@ -929,11 +1269,11 @@ function cambiarCantidad(indice, cambio) {
 }
 
 
-/* =========================================================
-   ELIMINAR PRODUCTO
-========================================================= */
+// ======================================================
+// ELIMINAR DEL CARRITO
+// ======================================================
 
-function eliminarProducto(indice) {
+function eliminarDelCarrito(indice) {
 
     if (!carrito[indice]) return;
 
@@ -946,275 +1286,99 @@ function eliminarProducto(indice) {
 }
 
 
-/* =========================================================
-   ABRIR CARRITO
-========================================================= */
+// ======================================================
+// ABRIR CARRITO
+// ======================================================
 
 function abrirCarrito() {
 
     const modal =
         document.getElementById("modalCarrito");
 
+
     if (!modal) return;
-
-
-    modal.classList.add("activo");
 
 
     actualizarCarrito();
 
+
+    const perfil =
+        JSON.parse(
+            localStorage.getItem("viniloPerfil")
+        );
+
+
+    if (perfil) {
+
+        const nombre =
+            document.getElementById("nombreCliente");
+
+
+        if (nombre && !nombre.value) {
+
+            nombre.value =
+                `${perfil.nombre || ""} ${perfil.apellido || ""}`.trim();
+
+        }
+
+    }
+
+
+    modal.classList.add("activo");
+
 }
 
 
-/* =========================================================
-   CERRAR CARRITO
-========================================================= */
+// ======================================================
+// CERRAR CARRITO
+// ======================================================
 
 function cerrarCarrito() {
 
     const modal =
         document.getElementById("modalCarrito");
 
-    if (!modal) return;
 
+    if (modal) {
 
-    modal.classList.remove("activo");
-
-}
-
-
-/* =========================================================
-   EMPANADAS
-========================================================= */
-
-function seleccionarPackEmpanadas(cantidad) {
-
-    const contenedor =
-        document.getElementById(
-            "seleccionEmpanadas"
-        );
-
-
-    if (!contenedor) return;
-
-
-    contenedor.innerHTML = "";
-
-
-    const tipos = productos.filter(
-        producto =>
-            producto.categoria === "Empanadas"
-    );
-
-
-    let precioPack = 0;
-
-
-    if (cantidad === 6) {
-
-        precioPack = 13000;
-
-    } else if (cantidad === 12) {
-
-        precioPack = 25000;
+        modal.classList.remove("activo");
 
     }
 
-
-    let html = `
-
-        <div class="seleccion-pack">
-
-            <h3>
-                Elegí tus empanadas
-            </h3>
-
-            <p>
-                ${cantidad} unidades —
-                ${formatoPrecio(precioPack)}
-            </p>
-
-            <div class="empanadas-lista">
-
-    `;
-
-
-    tipos.forEach(tipo => {
-
-        html += `
-
-            <div class="empanada-fila">
-
-                <span>
-                    ${tipo.nombre}
-                </span>
-
-                <input
-                    type="number"
-                    min="0"
-                    max="${cantidad}"
-                    value="0"
-                    class="cantidad-empanada"
-                    data-id="${tipo.id}"
-                >
-
-            </div>
-
-        `;
-
-    });
-
-
-    html += `
-
-            </div>
-
-            <button
-                class="boton-agregar-pack"
-                onclick="agregarPackEmpanadas(${cantidad}, ${precioPack})"
-            >
-                AGREGAR ${cantidad} EMPANADAS
-            </button>
-
-        </div>
-
-    `;
-
-
-    contenedor.innerHTML = html;
-
 }
 
 
-/* =========================================================
-   AGREGAR PACK DE EMPANADAS
-========================================================= */
-
-function agregarPackEmpanadas(
-    cantidad,
-    precioPack
-) {
-
-    const inputs =
-        document.querySelectorAll(
-            ".cantidad-empanada"
-        );
-
-
-    let suma = 0;
-
-    const seleccion = [];
-
-
-    inputs.forEach(input => {
-
-        const cantidadElegida =
-            parseInt(input.value) || 0;
-
-
-        suma += cantidadElegida;
-
-
-        if (cantidadElegida > 0) {
-
-            const id =
-                parseInt(
-                    input.dataset.id
-                );
-
-
-            const producto =
-                productos.find(
-                    p => p.id === id
-                );
-
-
-            if (producto) {
-
-                seleccion.push(
-                    `${cantidadElegida} ${producto.nombre}`
-                );
-
-            }
-
-        }
-
-    });
-
-
-    if (suma !== cantidad) {
-
-        alert(
-            `Tenés que elegir exactamente ${cantidad} empanadas.`
-        );
-
-        return;
-
-    }
-
-
-    carrito.push({
-
-        id: "emp-" + Date.now(),
-
-        nombre:
-            `Pack ${cantidad} empanadas (${seleccion.join(", ")})`,
-
-        precio: precioPack,
-
-        cantidad: 1
-
-    });
-
-
-    actualizarCarrito();
-
-    cerrarModalEmpanadas();
-
-
-    mostrarConfirmacion(
-        `Pack de ${cantidad} empanadas`
-    );
-
-}
-
-
-/* =========================================================
-   CERRAR MODAL EMPANADAS
-========================================================= */
-
-function cerrarModalEmpanadas() {
-
-    const modal =
-        document.getElementById(
-            "modalEmpanadas"
-        );
-
-
-    if (!modal) return;
-
-
-    modal.classList.remove("activo");
-
-}
-
-
-/* =========================================================
-   PERFIL
-========================================================= */
+// ======================================================
+// PERFIL
+// ======================================================
 
 function abrirPerfil() {
 
     const modal =
-        document.getElementById(
-            "modalPerfil"
-        );
+        document.getElementById("modalPerfil");
 
 
     if (!modal) return;
 
 
-    cargarPerfil();
+    const datos =
+        JSON.parse(
+            localStorage.getItem("viniloPerfil")
+        );
+
+
+    if (datos) {
+
+        document.getElementById("perfilNombre").value =
+            datos.nombre || "";
+
+        document.getElementById("perfilApellido").value =
+            datos.apellido || "";
+
+        document.getElementById("perfilTelefono").value =
+            datos.telefono || "";
+
+    }
 
 
     modal.classList.add("activo");
@@ -1222,61 +1386,38 @@ function abrirPerfil() {
 }
 
 
-function cerrarPerfil() {
-
-    const modal =
-        document.getElementById(
-            "modalPerfil"
-        );
-
-
-    if (!modal) return;
-
-
-    modal.classList.remove("activo");
-
-}
-
-
-/* =========================================================
-   GUARDAR PERFIL
-========================================================= */
+// ======================================================
+// GUARDAR PERFIL
+// ======================================================
 
 function guardarPerfil() {
 
     const nombre =
-        document.getElementById(
-            "perfilNombre"
-        )?.value.trim() || "";
-
+        document.getElementById("perfilNombre").value.trim();
 
     const apellido =
-        document.getElementById(
-            "perfilApellido"
-        )?.value.trim() || "";
-
+        document.getElementById("perfilApellido").value.trim();
 
     const telefono =
-        document.getElementById(
-            "perfilTelefono"
-        )?.value.trim() || "";
+        document.getElementById("perfilTelefono").value.trim();
+
+
+    const datos = {
+
+        nombre: nombre,
+        apellido: apellido,
+        telefono: telefono
+
+    };
 
 
     localStorage.setItem(
         "viniloPerfil",
-        JSON.stringify({
-
-            nombre,
-            apellido,
-            telefono
-
-        })
+        JSON.stringify(datos)
     );
 
 
-    alert(
-        "✓ Datos guardados correctamente."
-    );
+    alert("Datos guardados correctamente ✓");
 
 
     cerrarPerfil();
@@ -1284,316 +1425,220 @@ function guardarPerfil() {
 }
 
 
-/* =========================================================
-   CARGAR PERFIL
-========================================================= */
+// ======================================================
+// CERRAR PERFIL
+// ======================================================
 
-function cargarPerfil() {
+function cerrarPerfil() {
 
-    const datos =
-        localStorage.getItem(
-            "viniloPerfil"
-        );
+    const modal =
+        document.getElementById("modalPerfil");
 
 
-    if (!datos) return;
+    if (modal) {
 
-
-    try {
-
-        const perfil =
-            JSON.parse(datos);
-
-
-        const nombre =
-            document.getElementById(
-                "perfilNombre"
-            );
-
-
-        const apellido =
-            document.getElementById(
-                "perfilApellido"
-            );
-
-
-        const telefono =
-            document.getElementById(
-                "perfilTelefono"
-            );
-
-
-        if (nombre) {
-
-            nombre.value =
-                perfil.nombre || "";
-
-        }
-
-
-        if (apellido) {
-
-            apellido.value =
-                perfil.apellido || "";
-
-        }
-
-
-        if (telefono) {
-
-            telefono.value =
-                perfil.telefono || "";
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "No se pudo cargar el perfil.",
-            error
-        );
+        modal.classList.remove("activo");
 
     }
 
 }
 
 
-/* =========================================================
-   RECOMPENSAS
-========================================================= */
+// ======================================================
+// PREMIOS
+// ======================================================
 
 function abrirRecompensas() {
 
     const modal =
-        document.getElementById(
-            "modalRecompensas"
-        );
+        document.getElementById("modalRecompensas");
 
 
-    if (!modal) return;
+    if (modal) {
 
+        modal.classList.add("activo");
 
-    modal.classList.add("activo");
+    }
 
 }
 
+
+// ======================================================
+// CERRAR PREMIOS
+// ======================================================
 
 function cerrarRecompensas() {
 
     const modal =
-        document.getElementById(
-            "modalRecompensas"
-        );
+        document.getElementById("modalRecompensas");
 
 
-    if (!modal) return;
+    if (modal) {
 
+        modal.classList.remove("activo");
 
-    modal.classList.remove("activo");
+    }
 
 }
 
 
-/* =========================================================
-   VOLVER AL INICIO
-========================================================= */
+// ======================================================
+// VOLVER AL INICIO
+// ======================================================
 
 function irInicio() {
-
-    categoriaActual = "";
-
-
-    const productosContenedor =
-        document.getElementById(
-            "productos"
-        );
-
-
-    if (productosContenedor) {
-
-        productosContenedor.innerHTML = `
-
-            <div class="mensaje-inicial">
-
-                <h2>
-                    Elegí una categoría
-                </h2>
-
-                <p>
-                    Tocá una opción para ver el menú.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
 
     window.scrollTo({
 
         top: 0,
-
         behavior: "smooth"
 
     });
 
+
+    const productos =
+        document.getElementById("productos");
+
+
+    if (productos) {
+
+        productos.innerHTML = `
+            <div class="mensaje-inicial">
+                Elegí una categoría para ver nuestros productos.
+            </div>
+        `;
+
+    }
+
 }
 
 
-/* =========================================================
-   ENVIAR PEDIDO POR WHATSAPP
-========================================================= */
+// ======================================================
+// ENVIAR PEDIDO POR WHATSAPP
+// ======================================================
 
 function enviarWhatsApp() {
 
+    // Verificar carrito
     if (carrito.length === 0) {
 
         alert(
-            "Primero agregá algún producto al carrito."
+            "Tu pedido está vacío."
         );
 
         return;
-
     }
 
 
     const nombre =
-        document.getElementById(
-            "nombreCliente"
-        )?.value.trim() || "";
+        document
+            .getElementById("nombreCliente")
+            .value
+            .trim();
 
 
     const tipoPedido =
-        document.getElementById(
-            "tipoPedido"
-        )?.value || "";
+        document
+            .getElementById("tipoPedido")
+            .value;
 
 
     const direccion =
-        document.getElementById(
-            "direccionCliente"
-        )?.value.trim() || "";
+        document
+            .getElementById("direccionCliente")
+            .value
+            .trim();
 
 
     const formaPago =
-        document.getElementById(
-            "formaPago"
-        )?.value || "";
+        document
+            .getElementById("formaPago")
+            .value;
 
 
     const observaciones =
-        document.getElementById(
-            "observaciones"
-        )?.value.trim() || "";
+        document
+            .getElementById("observaciones")
+            .value
+            .trim();
 
 
-    /* =========================
-       VALIDACIONES OBLIGATORIAS
-    ========================== */
-
-
+    // Nombre
     if (!nombre) {
 
         alert(
-            "Por favor, escribí tu nombre."
+            "Por favor ingresá tu nombre."
         );
 
-        document.getElementById(
-            "nombreCliente"
-        )?.focus();
-
         return;
-
     }
 
 
+    // Tipo de pedido
     if (!tipoPedido) {
 
         alert(
-            "Por favor, seleccioná cómo querés recibir el pedido."
+            "Por favor seleccioná el tipo de pedido."
         );
 
-        document.getElementById(
-            "tipoPedido"
-        )?.focus();
-
         return;
-
     }
 
 
+    // Dirección si es delivery
     if (
         tipoPedido === "Delivery" &&
         !direccion
     ) {
 
         alert(
-            "Para Delivery tenés que ingresar tu dirección."
+            "Por favor ingresá tu dirección."
         );
 
-        document.getElementById(
-            "direccionCliente"
-        )?.focus();
-
         return;
-
     }
 
 
+    // Forma de pago
     if (!formaPago) {
 
         alert(
-            "Por favor, seleccioná una forma de pago."
+            "Por favor seleccioná la forma de pago."
         );
 
-        document.getElementById(
-            "formaPago"
-        )?.focus();
-
         return;
-
     }
 
 
-    /* =========================
-       ARMAR PEDIDO
-    ========================== */
+    // ==================================================
+    // ARMAR MENSAJE
+    // ==================================================
 
     let mensaje =
-        "🍽️ *NUEVO PEDIDO - VINILO*%0A%0A";
+        `🍽️ *NUEVO PEDIDO - VINILO*%0A%0A`;
 
 
     mensaje +=
-        "👤 *Nombre:* " +
-        encodeURIComponent(nombre) +
-        "%0A";
-
+        `👤 *Nombre:* ${nombre}%0A`;
 
     mensaje +=
-        "📦 *Pedido:* " +
-        encodeURIComponent(tipoPedido) +
-        "%0A";
+        `📦 *Tipo de pedido:* ${tipoPedido}%0A`;
 
 
     if (tipoPedido === "Delivery") {
 
         mensaje +=
-            "📍 *Dirección:* " +
-            encodeURIComponent(direccion) +
-            "%0A";
+            `📍 *Dirección:* ${direccion}%0A`;
 
     }
 
 
     mensaje +=
-        "💳 *Forma de pago:* " +
-        encodeURIComponent(formaPago) +
-        "%0A%0A";
+        `💳 *Forma de pago:* ${formaPago}%0A%0A`;
 
 
     mensaje +=
-        "🛒 *DETALLE DEL PEDIDO:*%0A";
+        `🛒 *PEDIDO:*%0A`;
 
 
     let total = 0;
@@ -1602,60 +1647,44 @@ function enviarWhatsApp() {
     carrito.forEach(item => {
 
         const subtotal =
-            item.precio *
-            item.cantidad;
+            item.precio * item.cantidad;
 
 
         total += subtotal;
 
 
         mensaje +=
-            "• " +
-            encodeURIComponent(
-                `${item.cantidad} x ${item.nombre}`
-            ) +
-            " — " +
-            encodeURIComponent(
-                formatoPrecio(subtotal)
-            ) +
-            "%0A";
+            `• ${item.cantidad} x ${item.nombre} — $${subtotal.toLocaleString("es-AR")}%0A`;
 
     });
 
 
     mensaje +=
-        "%0A💰 *TOTAL: " +
-        encodeURIComponent(
-            formatoPrecio(total)
-        ) +
-        "*%0A";
+        `%0A💰 *TOTAL: $${total.toLocaleString("es-AR")}*%0A`;
 
 
     if (observaciones) {
 
         mensaje +=
-            "%0A📝 *Observaciones:* " +
-            encodeURIComponent(
-                observaciones
-            ) +
-            "%0A";
+            `%0A📝 *Observaciones:* ${observaciones}%0A`;
 
     }
 
 
-    /* =========================
-       WHATSAPP
-    ========================== */
+    mensaje +=
+        `%0A¡Gracias! 🙌`;
 
-    const numero =
+
+    // ==================================================
+    // WHATSAPP
+    // ==================================================
+
+    const numeroWhatsApp =
         "5493564374272";
 
 
     const url =
-        "https://wa.me/" +
-        numero +
-        "?text=" +
-        mensaje;
+        `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
 
 
     window.open(
@@ -1666,29 +1695,23 @@ function enviarWhatsApp() {
 }
 
 
-/* =========================================================
-   CERRAR MODALES AL TOCAR AFUERA
-========================================================= */
+// ======================================================
+// CERRAR MODALES AL TOCAR AFUERA
+// ======================================================
 
 window.addEventListener(
     "click",
-    function(event) {
+    function (evento) {
 
         const modales =
-            document.querySelectorAll(
-                ".modal"
-            );
+            document.querySelectorAll(".modal");
 
 
         modales.forEach(modal => {
 
-            if (
-                event.target === modal
-            ) {
+            if (evento.target === modal) {
 
-                modal.classList.remove(
-                    "activo"
-                );
+                modal.classList.remove("activo");
 
             }
 
@@ -1698,44 +1721,43 @@ window.addEventListener(
 );
 
 
-/* =========================================================
-   ESC PARA CERRAR MODALES
-========================================================= */
+// ======================================================
+// CERRAR MODALES CON ESCAPE
+// ======================================================
 
 document.addEventListener(
     "keydown",
-    function(event) {
+    function (evento) {
 
-        if (event.key !== "Escape") return;
+        if (evento.key === "Escape") {
 
-
-        const modales =
-            document.querySelectorAll(
-                ".modal.activo"
-            );
+            const modales =
+                document.querySelectorAll(".modal");
 
 
-        modales.forEach(modal => {
+            modales.forEach(modal => {
 
-            modal.classList.remove(
-                "activo"
-            );
+                modal.classList.remove("activo");
 
-        });
+            });
+
+        }
 
     }
 );
 
 
-/* =========================================================
-   INICIAR
-========================================================= */
+// ======================================================
+// INICIAR
+// ======================================================
 
 document.addEventListener(
     "DOMContentLoaded",
-    function() {
+    function () {
 
         actualizarCarrito();
+
+        irInicio();
 
     }
 );

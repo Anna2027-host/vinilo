@@ -1,12 +1,11 @@
-/* =========================================================
-   VINILO RESTÓ BAR
-   STYLE COMPLETO
-========================================================= */
+/* ======================================================
+   VINILO - ESTILOS PRINCIPALES
+   ====================================================== */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -17,157 +16,123 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #F5EFE0;
     color: #0A1931;
-    padding-bottom: 85px;
+    padding-bottom: 90px;
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ======================================================
+   ENCABEZADO
+   ====================================================== */
 
 .header {
     background: #0A1931;
     color: white;
-    padding: 16px 14px 18px;
-    position: relative;
-    z-index: 30;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.20);
+    padding: 22px 14px 18px;
+    text-align: center;
 }
 
 .header-principal {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 12px;
-}
-
-
-/* LOGO */
-
-.logo-contenedor {
-    width: 68px;
-    height: 68px;
-
-    display: flex;
     align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
 }
 
-.logo-izquierda {
-    width: 68px;
-    height: 68px;
-    object-fit: contain;
-    display: block;
+.logo-vinilo {
+    text-align: center;
 }
 
-
-/* NOMBRE */
-
-.nombre-vinilo {
-    text-align: left;
-}
-
-.nombre-vinilo h1 {
-    font-size: 30px;
-    letter-spacing: 4px;
-    font-weight: 900;
+.vinilo-titulo {
+    font-size: 42px;
     line-height: 1;
+    font-weight: 900;
+    letter-spacing: 5px;
 }
 
-.nombre-vinilo span {
-    display: block;
-    margin-top: 5px;
-
-    font-size: 8px;
+.vinilo-subtitulo {
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: 700;
     letter-spacing: 2px;
-    color: #D8CDB8;
+    opacity: 0.95;
 }
 
 
-/* UBICACIÓN */
+/* ======================================================
+   UBICACIÓN
+   ====================================================== */
 
 .ubicacion {
-    width: 100%;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 
-    margin: 13px auto 0;
+    margin: 18px auto 0;
+    padding: 11px 14px;
 
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-
-    border-radius: 14px;
-
-    padding: 10px 8px;
-
-    text-align: center;
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-
-    color: #F5EFE0;
-}
-
-
-/* =========================================================
-   CONTENIDO
-========================================================= */
-
-.contenido {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    padding-bottom: 30px;
-}
-
-
-/* =========================================================
-   CATEGORÍAS
-========================================================= */
-
-.categorias {
-    width: 100%;
-
-    padding: 12px 8px;
+    max-width: 430px;
 
     background: #F5EFE0;
+    color: #0A1931;
 
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    font-weight: 800;
+    font-size: 12px;
+
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+.ubicacion:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ubicacion small {
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+
+/* ======================================================
+   CONTENIDO
+   ====================================================== */
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* ======================================================
+   CATEGORÍAS
+   ====================================================== */
+
+.categorias {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+    gap: 7px;
 
-    gap: 6px;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 20;
-
-    border-bottom: 1px solid rgba(10, 25, 49, 0.08);
+    padding: 13px 10px 10px;
 }
 
 .categoria {
     min-width: 0;
 
-    border: 1px solid #E0D5C0;
+    border: none;
+    border-radius: 16px;
 
-    background: #FFF9ED;
-    color: #0A1931;
-
-    border-radius: 15px;
+    background: #0A1931;
+    color: white;
 
     padding: 9px 3px;
-
-    min-height: 82px;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9px;
-    font-weight: 800;
 
     cursor: pointer;
 
@@ -176,210 +141,177 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 6px;
+    gap: 4px;
 
-    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.08);
+    min-height: 72px;
 
-    transition: 0.18s;
-}
+    font-size: 10px;
+    font-weight: 800;
 
-.categoria-icono {
-    font-size: 25px;
-    line-height: 1;
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
 }
 
 .categoria:active {
-    transform: scale(0.93);
-    background: #0A1931;
-    color: white;
+    transform: scale(0.94);
 }
 
-.categoria:hover {
-    transform: translateY(-2px);
+.categoria-icono {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.categoria span:last-child {
+    white-space: nowrap;
 }
 
 
-/* =========================================================
+/* ======================================================
    PRODUCTOS
-========================================================= */
+   ====================================================== */
 
 .productos {
-    padding: 20px 14px 30px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 13px;
+    padding: 8px 12px 30px;
 }
 
 .titulo-categoria {
-    font-size: 28px;
-    font-weight: 900;
-
     color: #0A1931;
 
-    margin-bottom: 3px;
+    font-size: 27px;
+    font-weight: 900;
+
+    margin: 8px 0 14px;
+
+    text-transform: uppercase;
 }
 
 .mensaje-inicial {
     text-align: center;
-    padding: 50px 15px;
-}
 
-.mensaje-inicial h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-}
+    padding: 45px 20px;
 
-.mensaje-inicial p {
-    color: #756D60;
-    font-size: 14px;
-}
+    font-size: 15px;
+    font-weight: 700;
 
-.sin-productos {
-    text-align: center;
-    color: #756D60;
-    padding: 30px;
+    color: #0A1931;
+    opacity: 0.65;
 }
 
 
-/* =========================================================
-   TARJETA PRODUCTO
-========================================================= */
+/* ======================================================
+   TARJETAS DE PRODUCTOS
+   ====================================================== */
 
 .producto-card {
-    width: 100%;
+    background: white;
 
-    background: #FFF9ED;
-
-    border: 1px solid #E3D9C6;
-
-    border-radius: 18px;
+    border-radius: 20px;
 
     padding: 15px;
 
-    box-shadow:
-        0 5px 15px rgba(10, 25, 49, 0.07);
+    margin-bottom: 11px;
 
-    transition: 0.18s;
-}
+    border: 2px solid #0A1931;
 
-.producto-card:active {
-    transform: scale(0.985);
+    box-shadow: 0 4px 0 rgba(10, 25, 49, 0.16);
 }
 
 .producto-info {
-    flex: 1;
-}
-
-.producto-info h3 {
-    font-size: 16px;
-    line-height: 1.3;
-    color: #0A1931;
-    margin-bottom: 7px;
-}
-
-.precio-producto {
-    font-size: 17px;
-    font-weight: 900;
-    color: #0A1931;
-}
-
-
-/* =========================================================
-   BOTÓN AGREGAR
-========================================================= */
-
-.producto-card:not(.producto-con-opciones) {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+
     gap: 12px;
 }
 
-.agregar {
-    flex-shrink: 0;
+.producto-nombre {
+    color: #0A1931;
 
-    border: none;
+    font-size: 16px;
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+.precio-producto {
+    color: #0A1931;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+/* ======================================================
+   BOTÓN AGREGAR
+   ====================================================== */
+
+.agregar {
+    width: 100%;
+
+    margin-top: 12px;
+
+    border: 2px solid #0A1931;
+    border-radius: 13px;
 
     background: #EFFF00;
     color: #0A1931;
 
-    min-width: 100px;
-    min-height: 42px;
+    padding: 11px;
 
-    padding: 10px 15px;
-
-    border-radius: 12px;
-
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.5px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 4px 0 #B9C500,
-        0 6px 12px rgba(10, 25, 49, 0.15);
+    box-shadow: 0 3px 0 #0A1931;
 
-    transition: 0.15s;
-}
-
-.agregar:hover {
-    transform: translateY(-2px);
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease;
 }
 
 .agregar:active {
     transform: translateY(3px);
-
-    box-shadow:
-        0 1px 0 #B9C500,
-        0 3px 7px rgba(10, 25, 49, 0.15);
+    box-shadow: 0 0 0 #0A1931;
 }
 
 
-/* =========================================================
-   PIZZAS
-========================================================= */
-
-.producto-con-opciones {
-    display: block;
-}
-
-.producto-con-opciones .producto-info h3 {
-    font-size: 18px;
-    margin-bottom: 13px;
-}
+/* ======================================================
+   OPCIONES DE PIZZA
+   ====================================================== */
 
 .opciones-pizza {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 9px;
-
-    margin-top: 4px;
-}
-
-.opcion-pizza {
-    min-width: 0;
-
-    background: #F5EFE0;
-
-    border: 1px solid #D7CCB8;
-
-    border-radius: 13px;
-
-    padding: 10px;
-
     display: flex;
     flex-direction: column;
 
-    gap: 9px;
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.opcion-pizza {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    background: #F5EFE0;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(10, 25, 49, 0.18);
 }
 
 .opcion-info {
     display: flex;
     flex-direction: column;
+
     gap: 3px;
 }
 
@@ -394,157 +326,89 @@ body {
     color: #0A1931;
 }
 
-
-/* BOTÓN AMARILLO DE PIZZA */
-
 .boton-agregar-opcion {
-    width: 100%;
+    flex-shrink: 0;
 
-    border: none;
+    border: 2px solid #0A1931;
+    border-radius: 10px;
 
     background: #EFFF00;
     color: #0A1931;
 
-    border-radius: 10px;
+    padding: 9px 13px;
 
-    padding: 10px 6px;
-
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 900;
-
-    letter-spacing: 0.5px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 3px 0 #B9C500;
-
-    transition: 0.15s;
-}
-
-.boton-agregar-opcion:hover {
-    transform: translateY(-1px);
+    box-shadow: 0 2px 0 #0A1931;
 }
 
 .boton-agregar-opcion:active {
     transform: translateY(2px);
-
-    box-shadow:
-        0 1px 0 #B9C500;
+    box-shadow: none;
 }
 
 
-/* =========================================================
-   AVISO "AGREGADO"
-========================================================= */
+/* ======================================================
+   EMPANADAS
+   ====================================================== */
 
-.aviso-agregado {
-    position: fixed;
-
-    left: 50%;
-    bottom: 92px;
-
-    transform: translateX(-50%) translateY(20px);
-
-    background: #0A1931;
-    color: white;
-
-    padding: 12px 17px;
-
-    border-radius: 14px;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    box-shadow:
-        0 7px 20px rgba(0, 0, 0, 0.25);
-
-    opacity: 0;
-    pointer-events: none;
-
-    z-index: 500;
-
-    transition: 0.25s;
-
-    white-space: nowrap;
-}
-
-.aviso-agregado.mostrar {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+.empanadas-pack-card {
+    margin-bottom: 12px;
 }
 
 
-/* =========================================================
+/* ======================================================
    MODALES
-========================================================= */
+   ====================================================== */
 
 .modal {
-    display: none;
-
     position: fixed;
 
     inset: 0;
 
-    z-index: 200;
+    z-index: 1000;
 
-    background: rgba(5, 12, 22, 0.72);
+    display: none;
+
+    align-items: center;
+    justify-content: center;
 
     padding: 15px;
 
-    overflow-y: auto;
-
-    align-items: flex-end;
-    justify-content: center;
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .modal.activo {
     display: flex;
 }
 
-
-/* =========================================================
-   CONTENIDO GENERAL DEL MODAL
-========================================================= */
-
 .modal-contenido {
-    width: 100%;
-    max-width: 550px;
+    position: relative;
 
-    max-height: 92vh;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
 
     overflow-y: auto;
 
-    background: #FFF9ED;
-    color: #0A1931;
+    background: #F5EFE0;
 
-    border-radius: 25px 25px 0 0;
+    border-radius: 25px;
 
-    padding: 25px 18px 22px;
+    padding: 22px 17px;
 
-    position: relative;
+    border: 3px solid #0A1931;
 
-    border-top: 5px solid #0A1931;
-
-    animation: aparecerModal 0.2s ease;
-}
-
-@keyframes aparecerModal {
-
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
 }
 
 .modal-contenido h2 {
-    font-size: 27px;
+    color: #0A1931;
+
+    font-size: 24px;
     font-weight: 900;
 
     margin-bottom: 18px;
@@ -553,173 +417,164 @@ body {
 .cerrar-modal {
     position: absolute;
 
-    right: 15px;
-    top: 13px;
+    top: 10px;
+    right: 12px;
 
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
 
     border: none;
-
     border-radius: 50%;
 
     background: #0A1931;
     color: white;
 
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
 
     cursor: pointer;
 }
 
 
-/* =========================================================
+/* ======================================================
    CARRITO
-========================================================= */
+   ====================================================== */
 
 .lista-carrito {
-    margin-bottom: 8px;
-}
-
-.carrito-vacio {
-    color: #756D60;
-    text-align: center;
-    padding: 18px 5px;
-    font-size: 14px;
-}
-
-.item-carrito {
-    display: grid;
-
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column;
 
     gap: 9px;
 
-    padding: 13px 0;
+    margin-bottom: 15px;
+}
 
-    border-bottom: 1px solid #E3D9C6;
+.carrito-vacio {
+    text-align: center;
+
+    padding: 20px;
+
+    color: #0A1931;
+
+    font-weight: 700;
+
+    opacity: 0.6;
+}
+
+.item-carrito {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 11px;
+
+    border: 1px solid rgba(10, 25, 49, 0.2);
 }
 
 .item-carrito-info {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 9px;
 }
 
 .item-carrito-info strong {
     font-size: 13px;
-    line-height: 1.3;
+    color: #0A1931;
 }
 
 .item-carrito-info span {
-    font-size: 12px;
-    color: #756D60;
+    font-size: 13px;
+    font-weight: 900;
+    white-space: nowrap;
 }
 
-.cantidad-carrito {
+.controles-carrito {
     display: flex;
-
     align-items: center;
 
     gap: 8px;
 }
 
-.cantidad-carrito button {
-    width: 30px;
-    height: 30px;
+.controles-carrito button {
+    width: 31px;
+    height: 31px;
 
-    border: none;
-    border-radius: 50%;
+    border: 2px solid #0A1931;
+    border-radius: 9px;
 
-    background: #0A1931;
-    color: white;
+    background: #F5EFE0;
+    color: #0A1931;
 
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 900;
 
     cursor: pointer;
 }
 
-.cantidad-carrito span {
-    min-width: 18px;
+.cantidad-carrito {
+    min-width: 25px;
 
     text-align: center;
 
-    font-size: 13px;
     font-weight: 900;
-}
-
-.subtotal-carrito {
-    font-size: 13px;
-    align-self: center;
 }
 
 .eliminar-item {
-    border: none;
+    margin-left: auto;
 
-    background: transparent;
+    background: #0A1931 !important;
+    color: white !important;
 
-    font-size: 18px;
-
-    cursor: pointer;
-
-    align-self: center;
+    font-size: 14px !important;
 }
 
+.subtotal-carrito {
+    margin-top: 7px;
 
-/* =========================================================
-   TOTAL
-========================================================= */
+    text-align: right;
 
-.total-carrito {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 17px 0;
-
-    border-bottom: 1px solid #E3D9C6;
-}
-
-.total-carrito span {
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.total-carrito strong {
-    font-size: 23px;
     font-weight: 900;
-}
-
-
-/* =========================================================
-   FORMULARIO
-========================================================= */
-
-.formulario-pedido {
-    margin-top: 18px;
-}
-
-.formulario-pedido label {
-    display: block;
-
-    margin: 14px 0 6px;
-
-    font-size: 12px;
-    font-weight: 800;
-
     color: #0A1931;
 }
 
-.formulario-pedido label span {
-    color: #D60000;
+.total-carrito {
+    background: #0A1931;
+    color: white;
+
+    border-radius: 15px;
+
+    padding: 13px;
+
+    text-align: center;
+
+    font-size: 18px;
     font-weight: 900;
+
+    margin-bottom: 18px;
 }
 
-.formulario-pedido label small {
-    color: #756D60;
-    font-weight: 500;
+
+/* ======================================================
+   FORMULARIO
+   ====================================================== */
+
+.formulario-pedido {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.formulario-pedido label {
+    margin-top: 5px;
+
+    color: #0A1931;
+
+    font-size: 13px;
+    font-weight: 900;
 }
 
 .formulario-pedido input,
@@ -727,17 +582,15 @@ body {
 .formulario-pedido textarea {
     width: 100%;
 
-    border: 1px solid #CFC2AC;
+    border: 2px solid #0A1931;
+    border-radius: 12px;
 
     background: white;
-
     color: #0A1931;
 
-    border-radius: 11px;
+    padding: 12px;
 
-    padding: 13px;
-
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 
     font-size: 14px;
 
@@ -746,230 +599,259 @@ body {
 
 .formulario-pedido input::placeholder,
 .formulario-pedido textarea::placeholder {
-    color: #8A8175;
+    color: #555;
 }
 
-.formulario-pedido select {
-    cursor: pointer;
+.formulario-pedido textarea {
+    min-height: 80px;
+
+    resize: vertical;
 }
 
 .formulario-pedido input:focus,
 .formulario-pedido select:focus,
 .formulario-pedido textarea:focus {
-    border: 2px solid #0A1931;
-}
-
-.formulario-pedido textarea {
-    min-height: 85px;
-    resize: vertical;
+    box-shadow: 0 0 0 3px rgba(239, 255, 0, 0.65);
 }
 
 
-/* =========================================================
-   WHATSAPP
-========================================================= */
+/* ======================================================
+   BOTÓN WHATSAPP
+   ====================================================== */
 
 .boton-whatsapp {
     width: 100%;
 
-    margin-top: 20px;
+    margin-top: 12px;
 
-    border: none;
-
-    border-radius: 13px;
-
-    padding: 16px;
-
-    background: #25D366;
-    color: white;
-
-    font-size: 13px;
-    font-weight: 900;
-
-    letter-spacing: 0.2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 4px 0 #1DA851;
-
-    transition: 0.15s;
-}
-
-.boton-whatsapp:active {
-    transform: translateY(3px);
-
-    box-shadow:
-        0 1px 0 #1DA851;
-}
-
-
-/* =========================================================
-   EMPANADAS
-========================================================= */
-
-.texto-modal {
-    color: #756D60;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-.packs-empanadas {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-}
-
-.pack-empanadas {
-    border: none;
-
-    background: #0A1931;
-    color: white;
-
+    border: 2px solid #0A1931;
     border-radius: 14px;
-
-    padding: 15px 10px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 5px;
-
-    align-items: center;
-
-    cursor: pointer;
-}
-
-.pack-empanadas strong {
-    font-size: 13px;
-}
-
-.pack-empanadas span {
-    font-size: 16px;
-    font-weight: 900;
-}
-
-.pack-empanadas:active {
-    transform: scale(0.96);
-}
-
-
-/* =========================================================
-   SELECCIÓN DE EMPANADAS
-========================================================= */
-
-.seleccion-pack {
-    margin-top: 18px;
-
-    padding-top: 17px;
-
-    border-top: 1px solid #E3D9C6;
-}
-
-.seleccion-pack h3 {
-    font-size: 17px;
-    margin-bottom: 5px;
-}
-
-.seleccion-pack p {
-    color: #756D60;
-    font-size: 12px;
-    margin-bottom: 12px;
-}
-
-.empanadas-lista {
-    display: flex;
-    flex-direction: column;
-}
-
-.empanada-fila {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 10px 0;
-
-    border-bottom: 1px solid #E3D9C6;
-}
-
-.empanada-fila span {
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.cantidad-empanada {
-    width: 65px;
-
-    padding: 9px;
-
-    border: 1px solid #CFC2AC;
-
-    border-radius: 9px;
-
-    background: white;
-
-    color: #0A1931;
-
-    text-align: center;
-
-    font-weight: 800;
-}
-
-.boton-agregar-pack {
-    width: 100%;
-
-    margin-top: 18px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 14px;
 
     background: #EFFF00;
     color: #0A1931;
 
-    font-size: 12px;
-    font-weight: 900;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 4px 0 #B9C500;
-}
-
-
-/* =========================================================
-   PERFIL
-========================================================= */
-
-.boton-guardar {
-    width: 100%;
-
-    margin-top: 18px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 15px;
-
-    background: #0A1931;
-    color: white;
+    padding: 14px;
 
     font-size: 13px;
     font-weight: 900;
 
     cursor: pointer;
+
+    box-shadow: 0 4px 0 #0A1931;
+}
+
+.boton-whatsapp:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 
-/* =========================================================
-   RECOMPENSAS
-========================================================= */
+/* ======================================================
+   EMPANADAS - SELECTOR
+   ====================================================== */
+
+.modal-empanadas h2 {
+    padding-right: 35px;
+}
+
+.modal-empanadas > p {
+    color: #0A1931;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+}
+
+.selector-empanadas {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.contador-empanadas {
+    background: #0A1931;
+    color: white;
+
+    border-radius: 13px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.contador-empanadas strong {
+    color: #EFFF00;
+}
+
+.fila-empanada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background: white;
+
+    border: 1px solid rgba(10, 25, 49, 0.2);
+
+    border-radius: 13px;
+
+    padding: 10px 11px;
+}
+
+.fila-empanada > span {
+    color: #0A1931;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.controles-empanada {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.controles-empanada button {
+    width: 31px;
+    height: 31px;
+
+    border: 2px solid #0A1931;
+    border-radius: 9px;
+
+    background: #EFFF00;
+    color: #0A1931;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.controles-empanada strong {
+    min-width: 20px;
+
+    text-align: center;
+
+    color: #0A1931;
+}
+
+.boton-confirmar-empanadas {
+    width: 100%;
+
+    margin-top: 10px;
+
+    border: 2px solid #0A1931;
+    border-radius: 14px;
+
+    background: #EFFF00;
+    color: #0A1931;
+
+    padding: 13px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 0 #0A1931;
+}
+
+.boton-confirmar-empanadas:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+
+/* ======================================================
+   AVISO PRODUCTO AGREGADO
+   ====================================================== */
+
+.aviso-agregado {
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 92px;
+
+    z-index: 2000;
+
+    transform: translate(-50%, 20px);
+
+    width: calc(100% - 30px);
+    max-width: 400px;
+
+    background: #0A1931;
+    color: white;
+
+    border: 2px solid #EFFF00;
+    border-radius: 14px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.aviso-agregado.mostrar {
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+}
+
+
+/* ======================================================
+   PERFIL
+   ====================================================== */
+
+.boton-guardar {
+    width: 100%;
+
+    margin-top: 12px;
+
+    border: 2px solid #0A1931;
+    border-radius: 14px;
+
+    background: #EFFF00;
+    color: #0A1931;
+
+    padding: 13px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 0 #0A1931;
+}
+
+.boton-guardar:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+
+/* ======================================================
+   PREMIOS
+   ====================================================== */
 
 .modal-recompensas {
     text-align: center;
@@ -977,37 +859,25 @@ body {
 
 .recompensas-icono {
     font-size: 55px;
-    margin: 5px 0 10px;
-}
 
-.modal-recompensas p {
-    color: #756D60;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .puntos-proximamente {
-    display: inline-block;
-
-    background: #EFFF00;
     color: #0A1931;
 
-    padding: 10px 16px;
+    font-size: 15px;
+    font-weight: 700;
 
-    border-radius: 10px;
+    line-height: 1.5;
 
-    font-size: 11px;
-    font-weight: 900;
+    opacity: 0.75;
 }
 
 
-/* =========================================================
-   NAVEGACIÓN INFERIOR
-========================================================= */
+/* ======================================================
+   BARRA INFERIOR
+   ====================================================== */
 
 .bottom-nav {
     position: fixed;
@@ -1016,22 +886,18 @@ body {
     right: 0;
     bottom: 0;
 
+    z-index: 900;
+
     height: 76px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
     background: #0A1931;
 
-    z-index: 150;
+    border-top: 2px solid rgba(255, 255, 255, 0.12);
 
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    padding:
-        7px 8px
-        calc(7px + env(safe-area-inset-bottom));
-
-    box-shadow:
-        0 -5px 20px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 -5px 18px rgba(0, 0, 0, 0.2);
 }
 
 .nav-item {
@@ -1040,311 +906,238 @@ body {
     border: none;
 
     background: transparent;
-
-    color: #AEB8C5;
-
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 
     cursor: pointer;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
-    gap: 4px;
-
-    border-radius: 14px;
-
-    transition: 0.18s;
+    gap: 3px;
 }
 
 .nav-item span {
-    font-size: 22px;
+    font-size: 21px;
+
     line-height: 1;
 }
 
 .nav-item small {
-    font-size: 9px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
 }
 
 .nav-item:active {
-    transform: scale(0.90);
     background: rgba(255, 255, 255, 0.08);
 }
-
-.nav-carrito {
-    position: relative;
-}
-
-
-/* =========================================================
-   CONTADOR DEL CARRITO
-========================================================= */
 
 .contador-carrito {
     position: absolute;
 
-    top: 3px;
-    right: 22%;
+    top: 8px;
+    right: 50%;
 
-    min-width: 18px;
-    height: 18px;
+    transform: translateX(21px);
 
-    padding: 0 5px;
+    min-width: 19px;
+    height: 19px;
 
-    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
 
     background: #EFFF00;
     color: #0A1931;
 
-    font-size: 9px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
+    font-size: 10px;
     font-weight: 900;
-
-    opacity: 0.45;
-
-    transition: 0.2s;
-}
-
-.contador-carrito.activo {
-    opacity: 1;
 }
 
 
-/* =========================================================
-   ESCRITORIO
-========================================================= */
+/* ======================================================
+   TABLET / DESKTOP
+   ====================================================== */
 
 @media (min-width: 700px) {
 
-    .productos {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        align-items: start;
+    .header {
+        padding: 28px 20px 22px;
     }
 
-    .titulo-categoria,
-    .mensaje-inicial,
-    .sin-productos {
+    .vinilo-titulo {
+        font-size: 52px;
+    }
+
+    .vinilo-subtitulo {
+        font-size: 15px;
+    }
+
+    .categorias {
+        gap: 10px;
+
+        padding: 18px 15px 12px;
+    }
+
+    .categoria {
+        min-height: 82px;
+
+        font-size: 12px;
+    }
+
+    .categoria-icono {
+        font-size: 27px;
+    }
+
+    .productos {
+        padding: 12px 15px 35px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .titulo-categoria {
         grid-column: 1 / -1;
+    }
+
+    .mensaje-inicial {
+        grid-column: 1 / -1;
+    }
+
+    .producto-card {
+        margin-bottom: 0;
     }
 
 }
 
 
-/* =========================================================
+/* ======================================================
    CELULAR
-========================================================= */
+   ====================================================== */
 
-@media (max-width: 600px) {
-
-    body {
-        padding-bottom: 78px;
-    }
-
-
-    /* HEADER */
+@media (max-width: 430px) {
 
     .header {
-        padding: 13px 10px 15px;
+        padding-top: 19px;
     }
 
-    .header-principal {
-        gap: 9px;
+    .vinilo-titulo {
+        font-size: 38px;
+        letter-spacing: 4px;
     }
 
-    .logo-contenedor {
-        width: 62px;
-        height: 62px;
-    }
-
-    .logo-izquierda {
-        width: 62px;
-        height: 62px;
-    }
-
-    .nombre-vinilo h1 {
-        font-size: 27px;
-        letter-spacing: 3px;
-    }
-
-    .nombre-vinilo span {
-        font-size: 7px;
-        letter-spacing: 1.8px;
+    .vinilo-subtitulo {
+        font-size: 11px;
+        letter-spacing: 1.6px;
     }
 
     .ubicacion {
-        font-size: 8px;
-        padding: 9px 5px;
-        white-space: nowrap;
+        font-size: 10px;
+
+        padding: 10px 9px;
+
+        border-radius: 15px;
     }
 
-
-    /* CATEGORÍAS */
+    .ubicacion small {
+        font-size: 10px;
+    }
 
     .categorias {
-        grid-template-columns: repeat(6, 1fr);
-
         gap: 5px;
 
-        padding:
-            9px 6px 11px;
+        padding-left: 7px;
+        padding-right: 7px;
     }
 
     .categoria {
-        min-height: 78px;
+        min-height: 69px;
 
         padding: 7px 2px;
 
         border-radius: 13px;
 
-        font-size: 7.5px;
-
-        gap: 5px;
+        font-size: 9px;
     }
 
     .categoria-icono {
-        font-size: 22px;
+        font-size: 20px;
     }
 
-
-    /* PRODUCTOS */
-
     .productos {
-        padding: 18px 10px 25px;
-
-        gap: 11px;
+        padding-left: 9px;
+        padding-right: 9px;
     }
 
     .titulo-categoria {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .producto-card {
-        padding: 14px;
-        border-radius: 16px;
+        padding: 13px;
+        border-radius: 17px;
     }
 
-    .producto-info h3 {
-        font-size: 15px;
+    .producto-nombre {
+        font-size: 14px;
     }
 
     .precio-producto {
-        font-size: 16px;
+        font-size: 14px;
     }
 
+    .opcion-pizza {
+        padding: 8px;
+    }
 
-    /* BOTÓN AGREGAR */
-
-    .agregar {
-        min-width: 88px;
-
-        min-height: 40px;
-
-        padding: 9px 11px;
+    .boton-agregar-opcion {
+        padding: 8px 10px;
 
         font-size: 10px;
     }
 
-
-    /* PIZZAS */
-
-    .opciones-pizza {
-        gap: 7px;
-    }
-
-    .opcion-pizza {
-        padding: 9px 7px;
-    }
-
-    .opcion-info strong {
-        font-size: 12px;
-    }
-
-    .opcion-info span {
-        font-size: 13px;
-    }
-
-    .boton-agregar-opcion {
-        padding: 9px 4px;
-        font-size: 9px;
-    }
-
-
-    /* MODAL */
-
     .modal {
-        padding: 0;
+        padding: 9px;
     }
 
     .modal-contenido {
-        max-height: 94vh;
+        padding: 20px 13px;
 
-        padding:
-            23px 15px
-            calc(20px + env(safe-area-inset-bottom));
+        border-radius: 21px;
+
+        max-height: 92vh;
     }
 
     .modal-contenido h2 {
-        font-size: 25px;
+        font-size: 21px;
     }
 
-
-    /* CARRITO */
-
-    .item-carrito {
-        grid-template-columns: 1fr auto;
+    .fila-empanada {
+        padding: 9px;
     }
 
-    .subtotal-carrito {
-        grid-column: 1;
+    .fila-empanada > span {
+        font-size: 12px;
     }
 
-    .eliminar-item {
-        grid-column: 2;
-        grid-row: 2;
+    .controles-empanada {
+        gap: 5px;
     }
 
-
-    /* NAV */
+    .controles-empanada button {
+        width: 29px;
+        height: 29px;
+    }
 
     .bottom-nav {
         height: 72px;
-    }
-
-    .nav-item span {
-        font-size: 20px;
-    }
-
-    .nav-item small {
-        font-size: 8px;
-    }
-
-    .contador-carrito {
-        right: 20%;
-    }
-
-
-    /* AVISO */
-
-    .aviso-agregado {
-        bottom: 82px;
-
-        max-width: calc(100% - 30px);
-
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
 }

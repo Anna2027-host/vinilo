@@ -11,37 +11,35 @@
 
 <body>
 
-    <!-- =========================
-         ENCABEZADO
-    ========================== -->
+    <!-- ENCABEZADO -->
     <header class="header">
 
         <div class="header-principal">
 
-            <div class="logo-contenedor">
-                <img src="logo.png" alt="Vinilo" class="logo-izquierda">
-            </div>
-
-            <div class="nombre-vinilo">
-                <h1>VINILO</h1>
-                <span>RESTÓ BAR • PUB</span>
+            <div class="logo-vinilo">
+                <div class="vinilo-titulo">VINILO</div>
+                <div class="vinilo-subtitulo">RESTÓ BAR • PUB</div>
             </div>
 
         </div>
 
-        <div class="ubicacion">
-            📍 AV. SANTA FE 272 • LA FRANCIA, CBA
-        </div>
+        <!-- UBICACIÓN -->
+        <a
+            class="ubicacion"
+            href="https://www.google.com/maps/search/?api=1&query=Blvd.%20Sta.%20Fe%20272%2C%20X2426%20La%20Francia%2C%20C%C3%B3rdoba"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span>📍 BLVD. STA. FE 272 • LA FRANCIA, CBA</span>
+            <small>Ver ubicación en Google Maps →</small>
+        </a>
 
     </header>
 
 
-    <!-- =========================
-         CONTENIDO PRINCIPAL
-    ========================== -->
-    <main class="contenido">
+    <!-- CATEGORÍAS -->
+    <main>
 
-        <!-- CATEGORÍAS -->
         <section class="categorias">
 
             <button class="categoria" onclick="mostrarCategoria('Pizzas')">
@@ -77,127 +75,121 @@
         </section>
 
 
-        <!-- =========================
-             PRODUCTOS
-        ========================== -->
+        <!-- PRODUCTOS -->
         <section id="productos" class="productos">
-
-            <div class="mensaje-inicial">
-                <h2>Elegí una categoría</h2>
-                <p>Tocá una opción para ver el menú.</p>
-            </div>
-
         </section>
 
     </main>
 
 
-    <!-- =========================
-         MODAL CARRITO
-    ========================== -->
+    <!-- ========================= -->
+    <!-- MODAL CARRITO -->
+    <!-- ========================= -->
+
     <div id="modalCarrito" class="modal">
 
         <div class="modal-contenido">
 
-            <button class="cerrar-modal" onclick="cerrarCarrito()">✕</button>
+            <button class="cerrar-modal" onclick="cerrarCarrito()">×</button>
 
             <h2>Mi pedido 🛒</h2>
 
-            <!-- PRODUCTOS DEL CARRITO -->
-            <div id="listaCarrito" class="lista-carrito">
-                <p class="carrito-vacio">
-                    Tu carrito está vacío.
-                </p>
-            </div>
+            <div id="listaCarrito" class="lista-carrito"></div>
 
-            <div class="total-carrito">
-                <span>Total</span>
-                <strong id="totalCarrito">$0</strong>
+            <div id="totalCarrito" class="total-carrito">
+                Total: $0
             </div>
 
 
-            <!-- DATOS DEL CLIENTE -->
             <div class="formulario-pedido">
 
                 <label for="nombreCliente">
-                    Nombre <span>*</span>
+                    Nombre *
                 </label>
 
                 <input
                     type="text"
                     id="nombreCliente"
-                    placeholder="Escribí tu nombre"
+                    placeholder="Ingresá tu nombre"
                     required
                 >
 
 
                 <label for="tipoPedido">
-                    ¿Cómo querés recibirlo? <span>*</span>
+                    Tipo de pedido *
                 </label>
 
                 <select
                     id="tipoPedido"
-                    required
                     onchange="actualizarDireccion()"
+                    required
                 >
                     <option value="">Seleccioná una opción</option>
-                    <option value="Retiro">Retiro por Vinilo</option>
                     <option value="Delivery">Delivery</option>
+                    <option value="Retiro por el local">Retiro por el local</option>
                 </select>
 
 
-                <!-- DIRECCIÓN -->
                 <div
                     id="contenedorDireccion"
+                    class="campo-direccion"
                     style="display: none;"
                 >
 
                     <label for="direccionCliente">
-                        Dirección <span>*</span>
+                        Dirección *
                     </label>
 
                     <input
                         type="text"
                         id="direccionCliente"
-                        placeholder="Escribí tu dirección"
+                        placeholder="Ingresá tu dirección"
                     >
 
                 </div>
 
 
-                <!-- FORMA DE PAGO -->
                 <label for="formaPago">
-                    Forma de pago <span>*</span>
+                    Forma de pago *
                 </label>
 
-                <select
-                    id="formaPago"
-                    required
-                >
-                    <option value="">Seleccioná una opción</option>
-                    <option value="Efectivo">Efectivo</option>
-                    <option value="Transferencia">Transferencia</option>
+                <select id="formaPago" required>
+
+                    <option value="">
+                        Seleccioná una opción
+                    </option>
+
+                    <option value="Efectivo">
+                        Efectivo
+                    </option>
+
+                    <option value="Transferencia">
+                        Transferencia
+                    </option>
+
+                    <option value="Mercado Pago">
+                        Mercado Pago
+                    </option>
+
                 </select>
 
 
-                <!-- OBSERVACIONES -->
                 <label for="observaciones">
                     Observaciones
-                    <small>(opcional)</small>
                 </label>
 
                 <textarea
                     id="observaciones"
-                    placeholder="¿Querés agregar algo?"
+                    placeholder="Ej: sin cebolla, tocar timbre, etc."
                 ></textarea>
 
 
-                <!-- ENVIAR -->
                 <button
+                    id="boton-whatsapp"
                     class="boton-whatsapp"
                     onclick="enviarWhatsApp()"
                 >
-                    📲 ENVIAR PEDIDO POR WHATSAPP
+                    ENVIAR PEDIDO POR WHATSAPP
                 </button>
 
             </div>
@@ -207,9 +199,10 @@
     </div>
 
 
-    <!-- =========================
-         MODAL EMPANADAS
-    ========================== -->
+    <!-- ========================= -->
+    <!-- MODAL EMPANADAS -->
+    <!-- ========================= -->
+
     <div id="modalEmpanadas" class="modal">
 
         <div class="modal-contenido modal-empanadas">
@@ -218,45 +211,32 @@
                 class="cerrar-modal"
                 onclick="cerrarModalEmpanadas()"
             >
-                ✕
+                ×
             </button>
 
-            <h2>Empanadas 🥟</h2>
+            <h2 id="tituloEmpanadas">
+                Elegí tus empanadas 🥟
+            </h2>
 
-            <p class="texto-modal">
-                Elegí la cantidad
+            <p id="textoEmpanadas">
+                Elegí los gustos para completar tu pedido.
             </p>
 
-            <div class="packs-empanadas">
-
-                <button
-                    class="pack-empanadas"
-                    onclick="seleccionarPackEmpanadas(6)"
-                >
-                    <strong>6 empanadas</strong>
-                    <span>$13.000</span>
-                </button>
-
-                <button
-                    class="pack-empanadas"
-                    onclick="seleccionarPackEmpanadas(12)"
-                >
-                    <strong>12 empanadas</strong>
-                    <span>$25.000</span>
-                </button>
-
+            <div id="packs-empanadas" class="packs-empanadas">
             </div>
 
-            <div id="seleccionEmpanadas"></div>
+            <div id="seleccionEmpanadas">
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- =========================
-         MODAL PERFIL
-    ========================== -->
+    <!-- ========================= -->
+    <!-- MODAL PERFIL -->
+    <!-- ========================= -->
+
     <div id="modalPerfil" class="modal">
 
         <div class="modal-contenido">
@@ -265,14 +245,10 @@
                 class="cerrar-modal"
                 onclick="cerrarPerfil()"
             >
-                ✕
+                ×
             </button>
 
             <h2>Mi perfil 👤</h2>
-
-            <p class="texto-modal">
-                Guardá tus datos para hacer tus pedidos más rápido.
-            </p>
 
             <div class="formulario-pedido">
 
@@ -283,7 +259,7 @@
                 <input
                     type="text"
                     id="perfilNombre"
-                    placeholder="Tu nombre"
+                    placeholder="Nombre"
                 >
 
 
@@ -294,7 +270,7 @@
                 <input
                     type="text"
                     id="perfilApellido"
-                    placeholder="Tu apellido"
+                    placeholder="Apellido"
                 >
 
 
@@ -305,11 +281,12 @@
                 <input
                     type="tel"
                     id="perfilTelefono"
-                    placeholder="Tu teléfono"
+                    placeholder="Teléfono"
                 >
 
 
                 <button
+                    id="boton-guardar"
                     class="boton-guardar"
                     onclick="guardarPerfil()"
                 >
@@ -323,9 +300,10 @@
     </div>
 
 
-    <!-- =========================
-         MODAL RECOMPENSAS
-    ========================== -->
+    <!-- ========================= -->
+    <!-- MODAL PREMIOS -->
+    <!-- ========================= -->
+
     <div id="modalRecompensas" class="modal">
 
         <div class="modal-contenido modal-recompensas">
@@ -334,32 +312,37 @@
                 class="cerrar-modal"
                 onclick="cerrarRecompensas()"
             >
-                ✕
+                ×
             </button>
 
             <div class="recompensas-icono">
                 ⭐
             </div>
 
-            <h2>Mis puntos</h2>
+            <h2>
+                Premios
+            </h2>
 
-            <p>
-                Próximamente vas a poder acumular puntos
-                y canjearlos por beneficios exclusivos.
+            <p class="puntos-proximamente">
+                Próximamente vas a poder sumar puntos con tus pedidos y canjear beneficios exclusivos.
             </p>
-
-            <div class="puntos-proximamente">
-                PRÓXIMAMENTE
-            </div>
 
         </div>
 
     </div>
 
 
-    <!-- =========================
-         NAVEGACIÓN INFERIOR
-    ========================== -->
+    <!-- ========================= -->
+    <!-- INSTAGRAM -->
+    <!-- ========================= -->
+
+    <!-- No ponemos Instagram -->
+
+
+    <!-- ========================= -->
+    <!-- BARRA INFERIOR -->
+    <!-- ========================= -->
+
     <nav class="bottom-nav">
 
         <button
@@ -376,7 +359,6 @@
             onclick="abrirCarrito()"
         >
             <span>🛒</span>
-
             <small>Carrito</small>
 
             <b
@@ -385,6 +367,7 @@
             >
                 0
             </b>
+
         </button>
 
 
@@ -408,16 +391,9 @@
     </nav>
 
 
-    <!-- =========================
-         SCRIPTS
-    ========================== -->
-
-    <script src="script.js"></script>
-
-
+    <!-- DIRECCIÓN DELIVERY -->
     <script>
 
-        // Mostrar u ocultar dirección según el tipo de pedido
         function actualizarDireccion() {
 
             const tipo = document.getElementById("tipoPedido");
@@ -444,14 +420,17 @@
         }
 
 
-        // Al cargar la página
-        document.addEventListener("DOMContentLoaded", function() {
-
-            actualizarDireccion();
-
-        });
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+                actualizarDireccion();
+            }
+        );
 
     </script>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
